@@ -5,14 +5,14 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class MainActivity : AppCompatActivity() {
+class GameOver : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_game_over)
 
-        val selectLevelButton = findViewById<Button>(R.id.select_level)
-        selectLevelButton.setOnClickListener{
-            val intent = Intent(this, SelectLevel::class.java)
+        val homeButton = findViewById<Button>(R.id.home)
+        homeButton.setOnClickListener{
+            val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivityIfNeeded(intent, 0)
         }
