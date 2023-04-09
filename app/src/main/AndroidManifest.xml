@@ -12,16 +12,16 @@
         android:theme="@style/Theme.FurnitureFrenzy"
         tools:targetApi="31">
         <activity
-            android:name=".GameOver"
+            android:name=".GameOverActivity"
             android:exported="false" />
         <activity
-            android:name=".Game"
+            android:name=".GameActivity"
             android:exported="false" />
         <activity
-            android:name=".Leaderboard"
+            android:name=".LeaderboardActivity"
             android:exported="false" />
         <activity
-            android:name=".SelectLevel"
+            android:name=".SelectLevelActivity"
             android:exported="false"
             android:label="@string/title_activity_select_level"
             android:theme="@style/Theme.FurnitureFrenzy.NoActionBar" />

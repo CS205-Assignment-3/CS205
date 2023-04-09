@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 
-class GameOver : AppCompatActivity() {
+class GameOverActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_over)
@@ -19,7 +19,7 @@ class GameOver : AppCompatActivity() {
 
         val leaderboardButton = findViewById<Button>(R.id.leaderboard)
         leaderboardButton.setOnClickListener{
-            val intent = Intent(this, Leaderboard::class.java)
+            val intent = Intent(this, LeaderboardActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivityIfNeeded(intent, 0)
         }
