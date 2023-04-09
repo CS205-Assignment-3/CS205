@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/Factory1">
+    android:background="@drawable/factory_1">
 
     <TextView
         android:id="@+id/textView21"
@@ -48,7 +48,7 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/GG" />
+            app:srcCompat="@drawable/gg" />
 
         <TextView
             android:id="@+id/textView22"
@@ -73,7 +73,7 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/home"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="90dp"
