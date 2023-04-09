@@ -44,4 +44,32 @@ class GameDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
 
         writableDatabase.insert(TABLE_NAME, null, values)
     }
+
+    fun getAllRecords(): List<Record> {
+        val records = mutableListOf<Record>()
+        val db = this.readableDatabase
+        val selectQuery = "SELECT * FROM $TABLE_NAME"
+        val cursor = db.rawQuery(selectQuery, null)
+
+        if (cursor.moveToFirst()) {
+            do {
+                val uuidIndex = cursor.getColumnIndex(COLUMN_ID)
+                val dateTimeIndex = cursor.getColumnIndex(COLUMN_DATETIME)
+                val timeTakenIndex = cursor.getColumnIndex(COLUMN_TIMETAKEN)
+                val scoreIndex = cursor.getColumnIndex(COLUMN_SCORE)
+
+                val uuid = if (uuidIndex != -1) cursor.getString(uuidIndex) else ""
+                val dateTime = if (dateTimeIndex != -1) cursor.getString(dateTimeIndex) else ""
+                val timeTaken = if (timeTakenIndex != -1) cursor.getInt(timeTakenIndex) else 0
+                val score = if (scoreIndex != -1) cursor.getInt(scoreIndex) else 0
+
+                val record = Record(uuid, dateTime, timeTaken, score)
+                records.add(record)
+            } while (cursor.moveToNext())
+        }
+
+
+        cursor.close()
+        return records
+    }
 }
