@@ -12,7 +12,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var workersTextView: TextView
     private lateinit var incrementScoreButton: Button
     private lateinit var gameOverButton: Button
-    private val workerCount = 2 // Set number of worker here
+    private val workerCount = 5 // Set number of worker here
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,6 +21,7 @@ class GameActivity : AppCompatActivity() {
         // Create game instance
         scoreTextView = findViewById(R.id.scoreTextView)
         workersTextView = findViewById(R.id.workersTextView)
+        workersTextView.text = "$workerCount/$workerCount"
         game = Game(this, this, workerCount, scoreTextView, workersTextView)
 
 
