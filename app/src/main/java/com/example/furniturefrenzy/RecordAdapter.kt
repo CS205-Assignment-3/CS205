@@ -11,6 +11,11 @@ import java.util.Locale
 
 class RecordAdapter(private val records: List<Record>) : RecyclerView.Adapter<RecordAdapter.RecordViewHolder>() {
 
+    companion object {
+        const val ITEM_TYPE_HEADER = 0
+        const val ITEM_TYPE_NORMAL = 1
+    }
+
     class RecordViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val serialTextView: TextView = view.findViewById(R.id.serialTextView)
         val dateTimeTextView: TextView = view.findViewById(R.id.dateTimeTextView)
@@ -18,22 +23,33 @@ class RecordAdapter(private val records: List<Record>) : RecyclerView.Adapter<Re
         val scoreTextView: TextView = view.findViewById(R.id.scoreTextView)
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return if (position == 0) {
+            ITEM_TYPE_HEADER
+        } else {
+            ITEM_TYPE_NORMAL
+        }
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecordViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_record, parent, false)
+        val layout = if (viewType == ITEM_TYPE_HEADER) R.layout.item_header else R.layout.item_record
+        val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
         return RecordViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: RecordViewHolder, position: Int) {
-        val record = records[position]
-        val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
+        if (position > 0) {
+            val record = records[position - 1]
+            val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
-        holder.serialTextView.text = "$position."
-        holder.dateTimeTextView.text = dateFormat.format(Date(record.dateTime.toLong()))
-        holder.timeTakenTextView.text = record.timeTaken.toString()
-        holder.scoreTextView.text = record.score.toString()
+            holder.serialTextView.text = "$position."
+            holder.dateTimeTextView.text = dateFormat.format(Date(record.dateTime.toLong()))
+            holder.timeTakenTextView.text = record.timeTaken.toString()
+            holder.scoreTextView.text = record.score.toString()
+        }
     }
 
     override fun getItemCount(): Int {
-        return records.size
+        return records.size + 1
     }
 }
