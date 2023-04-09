@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
         val selectLevelButton = findViewById<Button>(R.id.select_level)
         selectLevelButton.setOnClickListener{
-            val intent = Intent(this, SelectLevelActivity::class.java)
+            val intent = Intent(this, GameActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivityIfNeeded(intent, 0)
         }
