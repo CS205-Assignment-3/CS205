@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/factory_5">
+    android:background="@drawable/factory_5"
+    tools:context=".LeaderboardActivity">
 
     <TextView
         android:id="@+id/smallLogoView"
@@ -369,4 +370,15 @@
             android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/home"
+        android:layout_width="89dp"
+        android:layout_height="39dp"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.576" />
 </androidx.constraintlayout.widget.ConstraintLayout>
