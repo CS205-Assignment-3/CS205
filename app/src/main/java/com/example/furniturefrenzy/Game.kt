@@ -12,37 +12,48 @@ import java.util.concurrent.atomic.AtomicInteger
 class Game(
     private val context: Context,
     private val activity: GameActivity,
+    private val workerCount: Int,
     private val scoreTextView: TextView,
-    private val workersTextView: TextView
+    private val workersTextView: TextView,
 ) {
+    // Order completed
     private val score = AtomicInteger(0)
-    private val poolSize = 2
-    private val executor: ScheduledExecutorService = Executors.newScheduledThreadPool(poolSize) // Change the number of workers here
-    private val availableWorkers = Semaphore(poolSize)
 
-    fun incrementScore() {
-        if (availableWorkers.tryAcquire()) {
+    // Instantiate thread pool and semaphore for tracking
+    private val executor: ScheduledExecutorService = Executors.newScheduledThreadPool(workerCount)
+    private val availableWorkers = Semaphore(workerCount)
+
+    // TODO: Run another thread to check if order + grace period have exceeded
+
+    // TODO: Get type of job to be done, animate accordingly and assign job accordingly
+    fun craftOrder() {
+        if (availableWorkers.tryAcquire()) { //Reduce semaphore
+            // Update avail workers
             updateWorkersTextView()
+
+            // Schedule the task
             executor.schedule({
                 val newScore = score.incrementAndGet()
                 activity.runOnUiThread {
                     updateScoreTextView(newScore)
+
+                    // Release worker and update worker avail
                     availableWorkers.release()
                     updateWorkersTextView()
                 }
             }, 3, TimeUnit.SECONDS)
         } else {
-            // Show a message or update the UI to indicate that all workers are busy
+            // TODO: Show a message or update the UI to indicate that all workers are busy
         }
     }
 
     private fun updateScoreTextView(newScore: Int) {
-        scoreTextView.text = "Score: $newScore"
+        scoreTextView.text = "Fulfilled: $newScore"
     }
 
     private fun updateWorkersTextView() {
         val available = availableWorkers.availablePermits()
-        workersTextView.text = "$available/$poolSize"
+        workersTextView.text = "$available/$workerCount"
     }
 
     fun showGameOverScreen() {

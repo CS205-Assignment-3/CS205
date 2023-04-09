@@ -12,20 +12,23 @@ class GameActivity : AppCompatActivity() {
     private lateinit var workersTextView: TextView
     private lateinit var incrementScoreButton: Button
     private lateinit var gameOverButton: Button
+    private val workerCount = 2 // Set number of worker here
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
 
+        // Create game instance
         scoreTextView = findViewById(R.id.scoreTextView)
         workersTextView = findViewById(R.id.workersTextView)
-        game = Game(this, this, scoreTextView, workersTextView)
+        game = Game(this, this, workerCount, scoreTextView, workersTextView)
 
 
-        incrementScoreButton = findViewById(R.id.incrementCount)
+        // Action listeners
+        incrementScoreButton = findViewById(R.id.craftOrder)
         gameOverButton = findViewById(R.id.gameOver)
         incrementScoreButton.setOnClickListener {
-            game.incrementScore()
+            game.craftOrder()
         }
 
         gameOverButton.setOnClickListener {
@@ -35,6 +38,6 @@ class GameActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        game = Game(this, this, scoreTextView, workersTextView) // Create a new game instance when returning to the activity
+        game = Game(this, this, workerCount, scoreTextView, workersTextView) // Create a new game instance when returning to the activity
     }
 }
