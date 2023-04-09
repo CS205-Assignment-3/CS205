@@ -59,7 +59,8 @@ class Game(
     fun showGameOverScreen() {
         reset() // Reset the game state before showing the Game Over screen
         val intent = Intent(context, GameOverActivity::class.java)
-        intent.putExtra("SCORE", score.get())
+        intent.putExtra("score", score.get())
+        intent.putExtra("timeTaken", 60000) // Time in milliseconds
         context.startActivity(intent)
     }
 

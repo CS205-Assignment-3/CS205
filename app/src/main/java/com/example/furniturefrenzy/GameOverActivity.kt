@@ -12,9 +12,14 @@ class GameOverActivity : AppCompatActivity() {
         setContentView(R.layout.activity_game_over)
 
         // Get the score extra from the intent
-        val score = intent.getIntExtra("SCORE", 0)
+        val score = intent.getIntExtra("score", 0)
         val scoreTextView: TextView = findViewById(R.id.scoreTextView)
         scoreTextView.text = "Score: $score"
+
+        // Get the score extra from the intent
+        val timeTaken = intent.getIntExtra("timeTaken", 0)
+        val timeTakenTextView: TextView = findViewById(R.id.timeTakenTextView)
+        timeTakenTextView.text = "Time Taken: $timeTaken"
 
         val homeButton = findViewById<Button>(R.id.home)
         homeButton.setOnClickListener{
