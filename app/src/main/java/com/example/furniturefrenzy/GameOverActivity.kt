@@ -7,9 +7,14 @@ import android.widget.Button
 import android.widget.TextView
 
 class GameOverActivity : AppCompatActivity() {
+
+    private lateinit var dbHelper: GameDatabaseHelper
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_over)
+
+        dbHelper = GameDatabaseHelper(this)
 
         // Get the score extra from the intent
         val score = intent.getIntExtra("score", 0)
@@ -20,6 +25,10 @@ class GameOverActivity : AppCompatActivity() {
         val timeTaken = intent.getIntExtra("timeTaken", 0)
         val timeTakenTextView: TextView = findViewById(R.id.timeTakenTextView)
         timeTakenTextView.text = "Time Taken: $timeTaken"
+
+        // Save the game record to the database
+        val datetime = System.currentTimeMillis()
+        dbHelper.addGameRecord(datetime, timeTaken, score)
 
         val homeButton = findViewById<Button>(R.id.home)
         homeButton.setOnClickListener{
@@ -34,5 +43,10 @@ class GameOverActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivityIfNeeded(intent, 0)
         }
+    }
+
+    override fun onDestroy() {
+        dbHelper.close()
+        super.onDestroy()
     }
 }
