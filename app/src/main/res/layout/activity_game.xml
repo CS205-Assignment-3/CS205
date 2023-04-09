@@ -4,7 +4,170 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/main_game"
     tools:context=".GameActivity">
+
+    <Button
+        android:id="@+id/smelters"
+        android:layout_width="110dp"
+        android:layout_height="95dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="125dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="46dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Smelters"
+        app:layout_constraintBottom_toTopOf="@+id/factory"
+        app:layout_constraintEnd_toStartOf="@+id/mine"
+        app:layout_constraintStart_toEndOf="@+id/cutter2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/sawmills1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="39dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Sawmills1"
+        app:layout_constraintBottom_toTopOf="@+id/sawmills2"
+        app:layout_constraintEnd_toStartOf="@+id/cutter1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/sawmills2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="40dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Sawmills2"
+        app:layout_constraintBottom_toTopOf="@+id/sawmills3"
+        app:layout_constraintEnd_toStartOf="@+id/cutter2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sawmills1" />
+
+    <Button
+        android:id="@+id/sawmills3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginBottom="36dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Sawmills3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/cutter3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sawmills2" />
+
+    <Button
+        android:id="@+id/cutter1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="39dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Cutter1"
+        app:layout_constraintBottom_toTopOf="@+id/cutter2"
+        app:layout_constraintEnd_toStartOf="@+id/smelters"
+        app:layout_constraintStart_toEndOf="@+id/sawmills1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/cutter2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="40dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Cutter2"
+        app:layout_constraintBottom_toTopOf="@+id/cutter3"
+        app:layout_constraintEnd_toStartOf="@+id/factory"
+        app:layout_constraintStart_toEndOf="@+id/sawmills2"
+        app:layout_constraintTop_toBottomOf="@+id/cutter1" />
+
+    <Button
+        android:id="@+id/cutter3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="118dp"
+        android:layout_marginBottom="36dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Cutter3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/factory"
+        app:layout_constraintStart_toEndOf="@+id/sawmills3"
+        app:layout_constraintTop_toBottomOf="@+id/cutter2" />
+
+    <Button
+        android:id="@+id/factory"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="49dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Factory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/forest"
+        app:layout_constraintStart_toEndOf="@+id/cutter2"
+        app:layout_constraintTop_toBottomOf="@+id/smelters" />
+
+    <Button
+        android:id="@+id/mine"
+        android:layout_width="109dp"
+        android:layout_height="101dp"
+        android:layout_marginTop="89dp"
+        android:layout_marginEnd="175dp"
+        android:layout_marginBottom="2dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Mine"
+        app:layout_constraintBottom_toTopOf="@+id/forest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/smelters"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/forest"
+        android:layout_width="99dp"
+        android:layout_height="108dp"
+        android:layout_marginEnd="181dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Forest"
+        app:layout_constraintBottom_toTopOf="@+id/digsite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/factory"
+        app:layout_constraintTop_toBottomOf="@+id/mine" />
+
+    <Button
+        android:id="@+id/digsite"
+        android:layout_width="98dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="181dp"
+        android:layout_marginBottom="25dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Digsite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintStart_toEndOf="@+id/factory"
+        app:layout_constraintTop_toBottomOf="@+id/forest" />
 
     <TextView
         android:id="@+id/textView2"
@@ -79,6 +242,5 @@
         app:layout_constraintHorizontal_bias="0.906"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
