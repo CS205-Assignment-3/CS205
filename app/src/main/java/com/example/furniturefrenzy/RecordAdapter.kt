@@ -40,11 +40,13 @@ class RecordAdapter(private val records: List<Record>) : RecyclerView.Adapter<Re
     override fun onBindViewHolder(holder: RecordViewHolder, position: Int) {
         if (position > 0) {
             val record = records[position - 1]
+            val minutes = record.timeTaken / 60000
+            val seconds = record.timeTaken % 60000
             val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
             holder.serialTextView.text = "$position."
             holder.dateTimeTextView.text = dateFormat.format(Date(record.dateTime.toLong()))
-            holder.timeTakenTextView.text = record.timeTaken.toString()
+            holder.timeTakenTextView.text = String.format("%d min %02d sec", minutes, seconds)
             holder.scoreTextView.text = record.score.toString()
         }
     }
