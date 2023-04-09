@@ -7,7 +7,7 @@
     android:background="@drawable/factory_5">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/smallLogoView"
         android:layout_width="172dp"
         android:layout_height="37dp"
         android:fontFamily="@font/cookie"
@@ -52,9 +52,9 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="223dp"
+        android:layout_marginStart="250dp"
         android:layout_marginTop="37dp"
-        android:layout_marginEnd="224dp"
+        android:layout_marginEnd="250dp"
         android:layout_marginBottom="128dp"
         android:fontFamily="@font/cookie"
         android:text="Leaderboard"
@@ -323,11 +323,13 @@
         android:id="@+id/cardView2"
         android:layout_width="150dp"
         android:layout_height="53dp"
+        android:layout_marginStart="80dp"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="190dp"
         app:cardBackgroundColor="#E7A430"
         app:cardCornerRadius="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/cardView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <TextView
@@ -348,8 +350,10 @@
         android:layout_height="53dp"
         android:layout_marginStart="181dp"
         android:layout_marginTop="9dp"
+        android:layout_marginEnd="70dp"
         app:cardBackgroundColor="#E7A430"
         app:cardCornerRadius="30dp"
+        app:layout_constraintEnd_toStartOf="@+id/cardView2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 

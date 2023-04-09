@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/logoView"
         android:layout_width="385dp"
         android:layout_height="110dp"
         android:fontFamily="@font/cookie"
