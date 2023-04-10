@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "857820954827",
+    "project_id": "furniture-frenzy-e8447",
+    "storage_bucket": "furniture-frenzy-e8447.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:857820954827:android:84d51a8a58af597b2adb4e",
+        "android_client_info": {
+          "package_name": "com.example.furniturefrenzy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "857820954827-l8vqgo759983nsk9r5vhqfp96s5pjg5h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-yV1P-_oimjD5G-aRtY1KB-B874n0iig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "857820954827-l8vqgo759983nsk9r5vhqfp96s5pjg5h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
