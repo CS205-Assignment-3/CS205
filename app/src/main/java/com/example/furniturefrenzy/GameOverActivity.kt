@@ -5,7 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
 
 class GameOverActivity : AppCompatActivity() {
@@ -49,31 +51,30 @@ class GameOverActivity : AppCompatActivity() {
         }
 
         // Show a dialog to ask for the user's name
-//        showUsernameDialog { username ->
-//            saveRecordToFirestore(username, datetime, timeTaken, score)
-//        }
-        saveRecordToFirestore("Jacky", datetime, timeTaken, score)
+        showUsernameDialog { username ->
+            saveRecordToFirestore(username, datetime, timeTaken, score)
+        }
     }
 
-//    private fun showUsernameDialog(onSubmit: (String) -> Unit) {
-//        val builder = AlertDialog.Builder(this)
-//        builder.setTitle("Enter your username")
-//
-//        val input = EditText(this)
-//        builder.setView(input)
-//
-//        builder.setPositiveButton("Submit") { dialog, _ ->
-//            val username = input.text.toString()
-//            onSubmit(username)
-//            dialog.dismiss()
-//        }
-//
-//        builder.setNegativeButton("Cancel") { dialog, _ ->
-//            dialog.cancel()
-//        }
-//
-//        builder.show()
-//    }
+    private fun showUsernameDialog(onSubmit: (String) -> Unit) {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle("Enter your username")
+
+        val input = EditText(this)
+        builder.setView(input)
+
+        builder.setPositiveButton("Submit") { dialog, _ ->
+            val username = input.text.toString()
+            onSubmit(username)
+            dialog.dismiss()
+        }
+
+        builder.setNegativeButton("Cancel") { dialog, _ ->
+            dialog.cancel()
+        }
+
+        builder.show()
+    }
 
     private fun saveRecordToFirestore(username: String, datetime: Long, timeTaken: Int, score: Int) {
         val record = hashMapOf(
