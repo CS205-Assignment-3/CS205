@@ -9,7 +9,7 @@ import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
 
-class RecordAdapter(private val records: List<Record>) : RecyclerView.Adapter<RecordAdapter.RecordViewHolder>() {
+class RecordAdapter(private val records: List<Record>, private val isGlobal: Boolean) : RecyclerView.Adapter<RecordAdapter.RecordViewHolder>() {
 
     companion object {
         const val ITEM_TYPE_HEADER = 0
@@ -21,6 +21,7 @@ class RecordAdapter(private val records: List<Record>) : RecyclerView.Adapter<Re
         val dateTimeTextView: TextView = view.findViewById(R.id.dateTimeTextView)
         val timeTakenTextView: TextView = view.findViewById(R.id.timeTakenTextView)
         val scoreTextView: TextView = view.findViewById(R.id.scoreTextView)
+        val userNameTextView: TextView = view.findViewById(R.id.userNameTextView)
     }
 
     override fun getItemViewType(position: Int): Int {
@@ -48,6 +49,14 @@ class RecordAdapter(private val records: List<Record>) : RecyclerView.Adapter<Re
             holder.dateTimeTextView.text = dateFormat.format(Date(record.dateTime.toLong()))
             holder.timeTakenTextView.text = String.format("%d min %02d sec", minutes, seconds)
             holder.scoreTextView.text = record.score.toString()
+            if (isGlobal) {
+                holder.userNameTextView.text = record.userName
+            }
+        }
+        if (isGlobal) {
+            holder.userNameTextView.visibility = View.VISIBLE
+        } else {
+            holder.userNameTextView.visibility = View.GONE
         }
     }
 
