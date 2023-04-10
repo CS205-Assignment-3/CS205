@@ -25,12 +25,15 @@ class GameOverActivity : AppCompatActivity() {
         // Get the score extra from the intent
         val score = intent.getIntExtra("score", 0)
         val scoreTextView: TextView = findViewById(R.id.scoreTextView)
-        scoreTextView.text = "Score: $score"
+        scoreTextView.text = "Score: $score pts"
 
         // Get the score extra from the intent
+
         val timeTaken = intent.getIntExtra("timeTaken", 0)
+        val minutes = timeTaken / 60000
+        val seconds = timeTaken % 60000
         val timeTakenTextView: TextView = findViewById(R.id.timeTakenTextView)
-        timeTakenTextView.text = "Time Taken: $timeTaken"
+        timeTakenTextView.text = "Time Taken: $minutes min $seconds sec"
 
         // Save the game record to the database
         val datetime = System.currentTimeMillis()
