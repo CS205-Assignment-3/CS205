@@ -53,10 +53,15 @@ class GameOverActivity : AppCompatActivity() {
             startActivityIfNeeded(intent, 0)
         }
 
-        // Show a dialog to ask for the user's name
-        showUsernameDialog { username ->
-            saveRecordToFirestore(username, datetime, timeTaken, score)
+        val saveRecordButton = findViewById<Button>(R.id.saveRecord)
+        saveRecordButton.setOnClickListener{
+            // Show a dialog to ask for the user's name
+            showUsernameDialog { username ->
+                saveRecordToFirestore(username, datetime, timeTaken, score)
+            }
         }
+
+
     }
 
     private fun showUsernameDialog(onSubmit: (String) -> Unit) {
