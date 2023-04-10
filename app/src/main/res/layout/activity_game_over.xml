@@ -11,7 +11,6 @@
         android:id="@+id/smallLogoView"
         android:layout_width="172dp"
         android:layout_height="37dp"
-        android:fontFamily="@font/cookie"
         android:text="Factory Master"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display2"
@@ -31,7 +30,6 @@
         android:layout_marginStart="250dp"
         android:layout_marginTop="41dp"
         android:layout_marginEnd="250dp"
-        android:fontFamily="@font/cookie"
         android:text="Game Over"
         android:textColor="#E6E6E6"
         android:textSize="80sp"
@@ -40,28 +38,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.255" />
-
-    <TextView
-        android:id="@+id/scoreTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.526"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.341" />
-
-    <TextView
-        android:id="@+id/timeTakenTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.389" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -79,23 +55,23 @@
             app:srcCompat="@drawable/gg" />
 
         <TextView
-            android:id="@+id/textView22"
+            android:id="@+id/timeTakenTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="135dp"
             android:layout_marginTop="20dp"
-            android:text="Time: 12:00"
+            android:text="Time: "
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView23"
+            android:id="@+id/scoreTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="115dp"
             android:layout_marginTop="80dp"
-            android:text="Score: 2023 pts."
+            android:text="Score: "
             android:textColor="#FFFFFF"
             android:textSize="24sp"
             android:textStyle="bold" />
@@ -123,5 +99,16 @@
             android:textSize="24sp"
             android:textStyle="bold"
             app:cornerRadius="30dp" />
+
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/saveRecord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
