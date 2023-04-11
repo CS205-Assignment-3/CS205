@@ -16,31 +16,47 @@ class Game(
     private val scoreTextView: TextView,
     private val workersTextView: TextView,
 ) {
-    // Order completed
+    // Game resources
     private val score = AtomicInteger(0)
+    // Orders arrays
 
     // Instantiate thread pool and semaphore for tracking
     private val executor: ScheduledExecutorService = Executors.newScheduledThreadPool(workerCount)
     private val availableWorkers = Semaphore(workerCount)
 
-    // TODO: Run another thread to check if order + grace period have exceeded
+    // TODO: Main game loop
+    // TODO: Run another thread to check if order + grace period have exceeded (showGameOverScreen())
+    // Add to the order arrays, track the orders needs to be fulfilled, handle gameover cirteria
+    // loop...
+    // showGameOverScreen()
+
+    // TODO: Same as craft but is producer
+    fun extractResource(materialType: Int) {
+
+    }
 
     // TODO: Get type of job to be done, animate accordingly and assign job accordingly
-    fun craftOrder() {
+    //CONSUMER
+    fun craftOrder(orderType: Int) {
         if (availableWorkers.tryAcquire()) { //Reduce semaphore
             // Update avail workers
             updateWorkersTextView()
 
             // Schedule the task
             executor.schedule({
+
+                //Check if have materials and requirement to craft the product
                 val newScore = score.incrementAndGet()
                 activity.runOnUiThread {
                     updateScoreTextView(newScore)
+                    // Todo for the worker
+                    // Consume from buffer, show the worker working, update the orders array, update the UI for the orders
 
-                    // Release worker and update worker avail
-                    availableWorkers.release()
-                    updateWorkersTextView()
+
                 }
+                // Release worker and update worker avail
+                availableWorkers.release()
+                updateWorkersTextView()
             }, 3, TimeUnit.SECONDS)
         } else {
             // TODO: Show a message or update the UI to indicate that all workers are busy

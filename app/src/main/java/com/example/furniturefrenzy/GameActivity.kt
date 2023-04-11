@@ -10,7 +10,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var game: Game
     private lateinit var scoreTextView: TextView
     private lateinit var workersTextView: TextView
-    private lateinit var incrementScoreButton: Button
+    private lateinit var craftOrderButton: Button
     private lateinit var gameOverButton: Button
     private val workerCount = 5 // Set number of worker here
 
@@ -26,10 +26,20 @@ class GameActivity : AppCompatActivity() {
 
 
         // Action listeners
-        incrementScoreButton = findViewById(R.id.craftOrder)
+        craftOrderButton = findViewById(R.id.craftOrder)
         gameOverButton = findViewById(R.id.gameOver)
-        incrementScoreButton.setOnClickListener {
-            game.craftOrder()
+
+        // 5x resource sites
+        // rockStationButton... {game.extractResource(1)}
+
+
+        // 6x crafting bench (Show dialogbox)
+
+
+        // Produce crafting buttons
+        // Plastic chair craft button
+        craftOrderButton.setOnClickListener {
+            game.craftOrder(1)
         }
 
         gameOverButton.setOnClickListener {
