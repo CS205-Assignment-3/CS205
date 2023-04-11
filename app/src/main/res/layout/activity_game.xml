@@ -9,130 +9,42 @@
 
     <Button
         android:id="@+id/smelters"
-        android:layout_width="110dp"
-        android:layout_height="95dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="125dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginBottom="46dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="128dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="38dp"
         android:alpha="0.01"
         android:color="#66FF0000"
         android:text="Smelters"
         app:layout_constraintBottom_toTopOf="@+id/factory"
         app:layout_constraintEnd_toStartOf="@+id/mine"
-        app:layout_constraintStart_toEndOf="@+id/cutter2"
+        app:layout_constraintStart_toEndOf="@+id/craft_2"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/sawmills1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="101dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="39dp"
-        android:alpha="0.01"
-        android:color="#66FF0000"
-        android:text="Sawmills1"
-        app:layout_constraintBottom_toTopOf="@+id/sawmills2"
-        app:layout_constraintEnd_toStartOf="@+id/cutter1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/sawmills2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="40dp"
-        android:alpha="0.01"
-        android:color="#66FF0000"
-        android:text="Sawmills2"
-        app:layout_constraintBottom_toTopOf="@+id/sawmills3"
-        app:layout_constraintEnd_toStartOf="@+id/cutter2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sawmills1" />
-
-    <Button
-        android:id="@+id/sawmills3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="50dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="36dp"
-        android:alpha="0.01"
-        android:color="#66FF0000"
-        android:text="Sawmills3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/cutter3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sawmills2" />
-
-    <Button
-        android:id="@+id/cutter1"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="101dp"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="39dp"
-        android:alpha="0.01"
-        android:color="#66FF0000"
-        android:text="Cutter1"
-        app:layout_constraintBottom_toTopOf="@+id/cutter2"
-        app:layout_constraintEnd_toStartOf="@+id/smelters"
-        app:layout_constraintStart_toEndOf="@+id/sawmills1"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/cutter2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="40dp"
-        android:alpha="0.01"
-        android:color="#66FF0000"
-        android:text="Cutter2"
-        app:layout_constraintBottom_toTopOf="@+id/cutter3"
-        app:layout_constraintEnd_toStartOf="@+id/factory"
-        app:layout_constraintStart_toEndOf="@+id/sawmills2"
-        app:layout_constraintTop_toBottomOf="@+id/cutter1" />
-
-    <Button
-        android:id="@+id/cutter3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginEnd="118dp"
-        android:layout_marginBottom="36dp"
-        android:alpha="0.01"
-        android:color="#66FF0000"
-        android:text="Cutter3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/factory"
-        app:layout_constraintStart_toEndOf="@+id/sawmills3"
-        app:layout_constraintTop_toBottomOf="@+id/cutter2" />
 
     <Button
         android:id="@+id/factory"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="39dp"
-        android:layout_marginBottom="49dp"
+        android:layout_marginStart="415dp"
+        android:layout_marginEnd="122dp"
+        android:layout_marginBottom="45dp"
         android:alpha="0.01"
         android:color="#66FF0000"
         android:text="Factory"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/forest"
-        app:layout_constraintStart_toEndOf="@+id/cutter2"
+        app:layout_constraintStart_toEndOf="@+id/gameOver"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/smelters" />
 
     <Button
         android:id="@+id/mine"
-        android:layout_width="109dp"
-        android:layout_height="101dp"
-        android:layout_marginTop="89dp"
-        android:layout_marginEnd="175dp"
-        android:layout_marginBottom="2dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="9dp"
         android:alpha="0.01"
         android:color="#66FF0000"
         android:text="Mine"
@@ -143,9 +55,10 @@
 
     <Button
         android:id="@+id/forest"
-        android:layout_width="99dp"
-        android:layout_height="108dp"
-        android:layout_marginEnd="181dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="109dp"
+        android:layout_marginBottom="9dp"
         android:alpha="0.01"
         android:color="#66FF0000"
         android:text="Forest"
@@ -156,43 +69,32 @@
 
     <Button
         android:id="@+id/digsite"
-        android:layout_width="98dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="181dp"
-        android:layout_marginBottom="25dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="637dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="16dp"
         android:alpha="0.01"
         android:color="#66FF0000"
         android:text="Digsite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintEnd_toStartOf="@+id/workerLabel"
         app:layout_constraintStart_toEndOf="@+id/factory"
-        app:layout_constraintTop_toBottomOf="@+id/forest" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Game"
-        android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.342" />
+        app:layout_constraintTop_toBottomOf="@+id/forest" />
 
     <TextView
         android:id="@+id/scoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="29dp"
         android:text="Fulfilled: 0"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.547"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2" />
+        app:layout_constraintBottom_toTopOf="@+id/mine"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="504dp" />
 
     <TextView
         android:id="@+id/workerLabel"
@@ -200,12 +102,8 @@
         android:layout_height="wrap_content"
         android:text="Workers:"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.78"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.073" />
+        tools:layout_editor_absoluteX="752dp"
+        tools:layout_editor_absoluteY="336dp" />
 
     <Button
         android:id="@+id/gameOver"
@@ -214,33 +112,110 @@
         android:text="End"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
+        app:layout_constraintHorizontal_bias="0.415"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.612" />
-
-    <Button
-        android:id="@+id/craftOrder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Craft"
-        app:layout_constraintBottom_toTopOf="@id/gameOver"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.551"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textView2"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/workersTextView"
         android:layout_width="38dp"
         android:layout_height="40dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="368dp"
         android:text="0/2"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.906"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/craft_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="55dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter01"
+        app:layout_constraintBottom_toTopOf="@+id/craft_3"
+        app:layout_constraintEnd_toStartOf="@+id/craft_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/craft_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="51dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter03"
+        app:layout_constraintBottom_toTopOf="@+id/craft_5"
+        app:layout_constraintEnd_toStartOf="@+id/craft_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/craft_1" />
+
+    <Button
+        android:id="@+id/craft_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="44dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter05"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/craft_6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/craft_3" />
+
+    <Button
+        android:id="@+id/craft_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="121dp"
+        android:layout_marginBottom="55dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter02"
+        app:layout_constraintBottom_toTopOf="@+id/craft_4"
+        app:layout_constraintEnd_toStartOf="@+id/smelters"
+        app:layout_constraintStart_toEndOf="@+id/craft_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/craft_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="552dp"
+        android:layout_marginBottom="51dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter04"
+        app:layout_constraintBottom_toTopOf="@+id/craft_6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/craft_3"
+        app:layout_constraintTop_toBottomOf="@+id/craft_2" />
+
+    <Button
+        android:id="@+id/craft_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="21dp"
+        android:layout_marginBottom="44dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter06"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/gameOver"
+        app:layout_constraintStart_toEndOf="@+id/craft_5"
+        app:layout_constraintTop_toBottomOf="@+id/craft_4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
