@@ -49,25 +49,63 @@ class Game(
         finalResourceList.add(finalResource("ParkBench", listOf(5, 0, 5, 0, 0)))
         finalResourceList.add(finalResource("CoffeeTable", listOf(6, 0, 0, 0, 4)))
         finalResourceList.add(finalResource("DiningTable", listOf(0, 0, 2, 0, 8)))
-
     }
     // Add a ReentrantLock for atomic resource updates
     private val resourceLock = ReentrantLock()
 
-
-
     // Orders arrays
-
+    private val currentRequestList = ArrayList<finalResource>()
     // Instantiate thread pool and semaphore for tracking
     private val executor: ScheduledExecutorService = Executors.newScheduledThreadPool(workerCount)
+    private val gameExecutor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
     private val availableWorkers = Semaphore(workerCount)
-
+    private val requestArrayLock = Semaphore(1)
+    private var continueGame = true
     // TODO: Main game loop
     // TODO: Run another thread to check if order + grace period have exceeded (showGameOverScreen())
     // Add to the order arrays, track the orders needs to be fulfilled, handle gameover cirteria
     // loop...
     // showGameOverScreen()
 
+    fun startGame(){
+        gameExecutor.execute{
+            val initialRequestInterval = 10000L // x: requests come in every 10 seconds at start
+            val intervalReduction = 5000L // z: subtract 5 second from the request interval
+            val intervalFloor = 3000L // the minimum request interval : 3 seconds
+            val reductionTime = 3000L // y: after 3 seconds, requests will come in faster
+            val startTime = System.currentTimeMillis()
+            var currentRequestInterval = initialRequestInterval
+            // At game start
+            while (continueGame) {
+                Thread.sleep(currentRequestInterval)
+
+                // Request Timing
+                val elapsedTime = System.currentTimeMillis() - startTime
+                if (elapsedTime > reductionTime) {
+                    currentRequestInterval = currentRequestInterval - intervalReduction
+                    println("Reducing request interval")
+                    if (currentRequestInterval < intervalFloor) {
+                        currentRequestInterval = intervalFloor
+                    }
+                }
+
+                // Random Request
+                if(currentRequestList.size <= 9){
+                    if (requestArrayLock.tryAcquire()){
+                        val randomRequest = finalResourceList.random()
+                        currentRequestList.add(randomRequest)
+                        //queue1TextView.setImageResource(R.drawable.plastic_chair)
+                        println("Added " + randomRequest)
+                        requestArrayLock.release()
+                    }
+                }
+                else{
+                    println("GAME OVER")
+                    break
+                }
+            }
+        }
+    }
     // TODO: Same as craft but is producer
     fun extractResource(resourceType: Int) {
         if (availableWorkers.tryAcquire()) {
@@ -162,5 +200,6 @@ class Game(
         updateScoreTextView(0)
         // Cancel any pending tasks in the executor
         executor.shutdownNow()
+        gameExecutor.shutdownNow()
     }
 }

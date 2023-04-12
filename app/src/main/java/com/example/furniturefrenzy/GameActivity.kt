@@ -45,8 +45,7 @@ class GameActivity : AppCompatActivity() {
         plasticTextView = findViewById(R.id.plasticTextView)
         game = Game(this, this, workerCount, workersTextView, woodTextView,
             stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,)
-
-
+        game.startGame()
         // Action listeners
 //        craftCoffeeTableButton = findViewById(R.id.coffeeTable)
 //        craftFoldingChairButton = findViewById(R.id.foldingChair)
@@ -87,37 +86,38 @@ class GameActivity : AppCompatActivity() {
         // 6x crafting bench (Inside dialogbox)
         // Produce crafting buttons
         // coffee table -> 1; folding chair -> 2; glass table -> 3; park bench -> 4; plastic chair -> 5; stone bench -> 6; stone table -> 7
-//        craftCoffeeTableButton.setOnClickListener {
-//            game.craftOrder(1)
-//        }
-//
-//        craftFoldingChairButton.setOnClickListener {
-//            game.craftOrder(2)
-//        }
-//
-//        craftGlassTableButton.setOnClickListener {
-//            game.craftOrder(3)
-//        }
-//
-//        craftParkBenchButton.setOnClickListener {
-//            game.craftOrder(4)
-//        }
-//
-//        craftPlasticChairButton.setOnClickListener {
-//            game.craftOrder(5)
-//        }
-//
-//        craftStoneBenchButton.setOnClickListener {
-//            game.craftOrder(6)
-//        }
-//
-//        craftStoneTable.setOnClickListener {
-//            game.craftOrder(7)
-//        }
-//
-//        gameOverButton.setOnClickListener {
-//            game.showGameOverScreen()
-//        }
+        /*
+        craftCoffeeTableButton.setOnClickListener {
+            game.craftOrder(1)
+        }
+
+        craftFoldingChairButton.setOnClickListener {
+            game.craftOrder(2)
+        }
+
+        craftGlassTableButton.setOnClickListener {
+            game.craftOrder(3)
+        }
+
+        craftParkBenchButton.setOnClickListener {
+            game.craftOrder(4)
+        }
+
+        craftPlasticChairButton.setOnClickListener {
+            game.craftOrder(5)
+        }
+
+        craftStoneBenchButton.setOnClickListener {
+            game.craftOrder(6)
+        }
+
+        craftStoneTable.setOnClickListener {
+            game.craftOrder(7)
+        }
+         */
+        gameOverButton.setOnClickListener {
+            game.showGameOverScreen()
+        }
     }
 
     override fun onResume() {
