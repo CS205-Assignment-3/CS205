@@ -7,6 +7,34 @@
     android:background="@drawable/main_game"
     tools:context=".GameActivity">
 
+    <TextView
+        android:id="@+id/plasticTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginBottom="33dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/workersTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/digsite"
+        app:layout_constraintTop_toBottomOf="@+id/oreTextView" />
+
+    <TextView
+        android:id="@+id/glassTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="24dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/oreTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mine"
+        app:layout_constraintTop_toBottomOf="@+id/stoneTextView" />
+
     <Button
         android:id="@+id/smelters"
         android:layout_width="0dp"
@@ -88,13 +116,10 @@
         android:id="@+id/scoreTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="29dp"
         android:text="Fulfilled: 0"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/mine"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="504dp" />
+        tools:layout_editor_absoluteX="415dp"
+        tools:layout_editor_absoluteY="80dp" />
 
     <TextView
         android:id="@+id/workerLabel"
@@ -102,8 +127,8 @@
         android:layout_height="wrap_content"
         android:text="Workers:"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="752dp"
-        tools:layout_editor_absoluteY="336dp" />
+        tools:layout_editor_absoluteX="730dp"
+        tools:layout_editor_absoluteY="381dp" />
 
     <Button
         android:id="@+id/gameOver"
@@ -121,13 +146,58 @@
         android:id="@+id/workersTextView"
         android:layout_width="38dp"
         android:layout_height="40dp"
-        android:layout_marginTop="368dp"
-        android:text="0/2"
+        android:layout_marginTop="380dp"
+        android:text="0/5"
+        android:textAlignment="center"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/woodTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="19dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/stoneTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mine"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/oreTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="27dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/plasticTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/forest"
+        app:layout_constraintTop_toBottomOf="@+id/glassTextView" />
+
+    <TextView
+        android:id="@+id/stoneTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="24dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/glassTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mine"
+        app:layout_constraintTop_toBottomOf="@+id/woodTextView" />
 
     <Button
         android:id="@+id/craft_1"

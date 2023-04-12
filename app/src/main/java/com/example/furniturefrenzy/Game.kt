@@ -13,8 +13,13 @@ class Game(
     private val context: Context,
     private val activity: GameActivity,
     private val workerCount: Int,
-    private val scoreTextView: TextView,
     private val workersTextView: TextView,
+    private val woodTextView: TextView,
+    private val stoneTextView: TextView,
+    private val glassTextView: TextView,
+    private val oreTextView: TextView,
+    private val plasticTextView: TextView,
+    private val scoreTextView: TextView,
 ) {
     // Game resources
     private val score = AtomicInteger(0)

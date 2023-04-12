@@ -10,6 +10,11 @@ class GameActivity : AppCompatActivity() {
     private lateinit var game: Game
     private lateinit var scoreTextView: TextView
     private lateinit var workersTextView: TextView
+    private lateinit var woodTextView: TextView
+    private lateinit var stoneTextView: TextView
+    private lateinit var glassTextView: TextView
+    private lateinit var oreTextView: TextView
+    private lateinit var plasticTextView: TextView
     private lateinit var craftCoffeeTableButton: Button
     private lateinit var craftFoldingChairButton: Button
     private lateinit var craftGlassTableButton: Button
@@ -33,7 +38,13 @@ class GameActivity : AppCompatActivity() {
         scoreTextView = findViewById(R.id.scoreTextView)
         workersTextView = findViewById(R.id.workersTextView)
         workersTextView.text = "$workerCount/$workerCount"
-        game = Game(this, this, workerCount, scoreTextView, workersTextView)
+        woodTextView = findViewById(R.id.woodTextView)
+        stoneTextView = findViewById(R.id.stoneTextView)
+        glassTextView = findViewById(R.id.glassTextView)
+        oreTextView = findViewById(R.id.oreTextView)
+        plasticTextView = findViewById(R.id.plasticTextView)
+        game = Game(this, this, workerCount, workersTextView, woodTextView,
+            stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,)
 
 
         // Action listeners
@@ -111,6 +122,7 @@ class GameActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        game = Game(this, this, workerCount, scoreTextView, workersTextView) // Create a new game instance when returning to the activity
+        game = Game(this, this, workerCount, workersTextView, woodTextView,
+            stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,) // Create a new game instance when returning to the activity
     }
 }
