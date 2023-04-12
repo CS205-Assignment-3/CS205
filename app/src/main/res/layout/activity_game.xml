@@ -12,12 +12,13 @@
         android:layout_width="38dp"
         android:layout_height="40dp"
         android:layout_marginStart="93dp"
-        android:layout_marginBottom="33dp"
+        android:layout_marginBottom="27dp"
         android:text="0"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/workersTextView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/digsite"
         app:layout_constraintTop_toBottomOf="@+id/oreTextView" />
 
@@ -99,17 +100,15 @@
         android:id="@+id/digsite"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="637dp"
-        android:layout_marginEnd="15dp"
+        android:layout_marginStart="122dp"
+        android:layout_marginEnd="109dp"
         android:layout_marginBottom="16dp"
         android:alpha="0.01"
         android:color="#66FF0000"
         android:text="Digsite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/workerLabel"
         app:layout_constraintStart_toEndOf="@+id/factory"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/forest" />
 
     <TextView
@@ -118,17 +117,8 @@
         android:layout_height="wrap_content"
         android:text="Fulfilled: 0"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="415dp"
-        tools:layout_editor_absoluteY="80dp" />
-
-    <TextView
-        android:id="@+id/workerLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Workers:"
-        android:textSize="20sp"
-        tools:layout_editor_absoluteX="730dp"
-        tools:layout_editor_absoluteY="381dp" />
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp" />
 
     <Button
         android:id="@+id/gameOver"
