@@ -94,6 +94,13 @@ class Game(
                 // Update the UI with the new resource quantities
                 activity.runOnUiThread {
                     // TODO: Update the UI elements to display the new resource quantities
+                    when (resourceType) {
+                        1 -> woodTextView.text = resources["Logs"]?.get().toString()
+                        2 -> stoneTextView.text = resources["Stone"]?.get().toString()
+                        3 -> glassTextView.text = resources["Glass"]?.get().toString()
+                        4 -> oreTextView.text = resources["Ore"]?.get().toString()
+                        5 -> plasticTextView.text = resources["PlasticRods"]?.get().toString()
+                    }
                 }
 
                 // Release worker and update worker avail
