@@ -8,6 +8,10 @@ import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.Semaphore
 import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.locks.ReentrantLock
+import kotlin.concurrent.withLock
+
 
 class Game(
     private val context: Context,
@@ -23,6 +27,35 @@ class Game(
 ) {
     // Game resources
     private val score = AtomicInteger(0)
+    private val resources = ConcurrentHashMap<String, AtomicInteger>()
+    init {
+        // Initialize resources with their initial quantities
+        resources["Logs"] = AtomicInteger(0)
+        resources["Stone"] = AtomicInteger(0)
+        resources["Ore"] = AtomicInteger(0)
+        resources["PlasticRods"] = AtomicInteger(0)
+        resources["Glass"] = AtomicInteger(0)
+    }
+    data class finalResource(val name: String, val requiredResource: List<Int>)
+    private val finalResourceList = ArrayList<finalResource>()
+    init {
+        // Final Resource Info
+        // Index is logs, stone, ore, plasticrods, glass
+
+        finalResourceList.add(finalResource("PlasticChair", listOf(0, 0, 0, 5, 0)))
+        finalResourceList.add(finalResource("FoldingChair", listOf(0, 0, 5, 0, 0)))
+        finalResourceList.add(finalResource("StoneBench", listOf(0, 5, 0, 0, 0)))
+        finalResourceList.add(finalResource("StoneTable", listOf(0, 10, 0, 0, 0)))
+        finalResourceList.add(finalResource("ParkBench", listOf(5, 0, 5, 0, 0)))
+        finalResourceList.add(finalResource("CoffeeTable", listOf(6, 0, 0, 0, 4)))
+        finalResourceList.add(finalResource("DiningTable", listOf(0, 0, 2, 0, 8)))
+
+    }
+    // Add a ReentrantLock for atomic resource updates
+    private val resourceLock = ReentrantLock()
+
+
+
     // Orders arrays
 
     // Instantiate thread pool and semaphore for tracking
@@ -36,9 +69,42 @@ class Game(
     // showGameOverScreen()
 
     // TODO: Same as craft but is producer
-    fun extractResource(materialType: Int) {
+    fun extractResource(resourceType: Int) {
+        if (availableWorkers.tryAcquire()) {
+            // Update available workers
+            updateWorkersTextView()
 
+            // Schedule the task
+            executor.schedule({
+                // Perform atomic update of the selected resource using ReentrantLock
+                resourceLock.withLock {
+                    when (resourceType) {
+                        1 -> resources["Logs"]?.incrementAndGet()
+                        2 -> resources["Stone"]?.incrementAndGet()
+                        3 -> resources["Glass"]?.incrementAndGet()
+                        4 -> resources["Ore"]?.incrementAndGet()
+                        5 -> resources["PlasticRods"]?.incrementAndGet()
+
+                        else -> {
+                            println("Error. Only accept 1 -5")
+                        }
+                    }
+                }
+
+                // Update the UI with the new resource quantities
+                activity.runOnUiThread {
+                    // TODO: Update the UI elements to display the new resource quantities
+                }
+
+                // Release worker and update worker avail
+                availableWorkers.release()
+                updateWorkersTextView()
+            }, 3, TimeUnit.SECONDS)
+        } else {
+            // TODO: Show a message or update the UI to indicate that all workers are busy
+        }
     }
+
 
     // TODO: Get type of job to be done, animate accordingly and assign job accordingly
     //CONSUMER
