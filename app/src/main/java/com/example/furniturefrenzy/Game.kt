@@ -90,16 +90,16 @@ class Game(
                 }
 
                 // Random Request
-                if(currentRequestList.size <= 9){
-                    //TODO: Should this be .acquire instead? with try, if the lock is currently occupied, it will not wait and get continue
-                    if (requestArrayLock.tryAcquire()){
-                        val randomRequest = finalResourceList.random()
-                        currentRequestList.add(randomRequest)
-                        //queue1TextView.setImageResource(R.drawable.plastic_chair)
-                        println("Added " + randomRequest)
-                        requestArrayLock.release()
-                    }
+                if (currentRequestList.size <= 9) {
+                    // With acquire(), the code will wait until the lock is available before proceeding
+                    requestArrayLock.acquire()
+                    val randomRequest = finalResourceList.random()
+                    currentRequestList.add(randomRequest)
+                    //queue1TextView.setImageResource(R.drawable.plastic_chair)
+                    println("Added " + randomRequest)
+                    requestArrayLock.release()
                 }
+
                 else{
                     println("GAME OVER")
                     break
