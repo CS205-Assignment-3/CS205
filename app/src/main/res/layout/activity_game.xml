@@ -374,8 +374,7 @@
         app:layout_constraintHorizontal_bias="0.032"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
         android:id="@+id/order_2"
@@ -386,8 +385,7 @@
         app:layout_constraintHorizontal_bias="0.124"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
         android:id="@+id/order_3"
@@ -398,8 +396,7 @@
         app:layout_constraintHorizontal_bias="0.217"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
         android:id="@+id/order_4"
@@ -410,8 +407,7 @@
         app:layout_constraintHorizontal_bias="0.309"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
         android:id="@+id/order_5"
@@ -422,8 +418,7 @@
         app:layout_constraintHorizontal_bias="0.406"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
         android:id="@+id/order_6"
@@ -434,8 +429,7 @@
         app:layout_constraintHorizontal_bias="0.499"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
         android:id="@+id/order_7"
@@ -446,8 +440,7 @@
         app:layout_constraintHorizontal_bias="0.588"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
         android:id="@+id/order_8"
@@ -458,8 +451,7 @@
         app:layout_constraintHorizontal_bias="0.688"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
         android:id="@+id/order_9"
@@ -470,8 +462,7 @@
         app:layout_constraintHorizontal_bias="0.788"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
         android:id="@+id/order_10"
@@ -482,7 +473,6 @@
         app:layout_constraintHorizontal_bias="0.879"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043"
-        app:srcCompat="@android:drawable/divider_horizontal_dark" />
+        app:layout_constraintVertical_bias="0.043" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

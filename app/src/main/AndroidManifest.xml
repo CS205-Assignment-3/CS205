@@ -19,7 +19,8 @@
         <activity
             android:name=".GameActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape"
+            android:noHistory="true"/>
         <activity
             android:name=".LeaderboardActivity"
             android:exported="false"

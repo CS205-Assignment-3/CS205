@@ -93,13 +93,13 @@ class Game(
 
                 // Random Request
                 if(currentRequestList.size < 10){
-                    if (requestArrayLock.tryAcquire()){
-                        val randomRequest = finalResourceList.random()
-                        currentRequestList.add(randomRequest)
-                        println("Added " + randomRequest)
-                        showOrders()
-                        requestArrayLock.release()
-                    }
+                    requestArrayLock.acquire()
+                    val randomRequest = finalResourceList.random()
+                    currentRequestList.add(randomRequest)
+                    println("Added " + randomRequest)
+                    showOrders()
+                    requestArrayLock.release()
+
                 }
                 else{
                     println("GAME OVER")
@@ -158,32 +158,86 @@ class Game(
 
 
     // TODO: Get type of job to be done, animate accordingly and assign job accordingly
+    // Index 1 = plastic chair, 2 = folding chair, 3 =stone bench, 4 = stone table, 5 = park bench, 6 = coffee table, 7 = dining table
     //CONSUMER
     fun craftOrder(orderType: Int) {
-        if (availableWorkers.tryAcquire()) { //Reduce semaphore
-            // Update avail workers
+        if (availableWorkers.tryAcquire()) {
+            // Update available workers
             updateWorkersTextView()
 
             // Schedule the task
             executor.schedule({
 
-                //Check if have materials and requirement to craft the product
-                val newScore = score.incrementAndGet()
-                activity.runOnUiThread {
-                    updateScoreTextView(newScore)
-                    // Todo for the worker
-                    // Consume from buffer, show the worker working, update the orders array, update the UI for the orders
+                var craftingSuccessful = false
 
+                requestArrayLock.acquire()
+                val request = finalResourceList.getOrNull(orderType - 1)
+                if (request != null && currentRequestList.contains(request)) {
 
+                    // Check if there are enough resources to craft the product
+                    resourceLock.withLock {
+                        val canCraft = request.requiredResource.withIndex().all { (index, requiredAmount) ->
+                            val resourceName = when (index) {
+                                0 -> "Logs"
+                                1 -> "Stone"
+                                2 -> "Ore"
+                                3 -> "PlasticRods"
+                                4 -> "Glass"
+                                else -> null
+                            }
+                            resourceName?.let { resources[it]?.get() ?: 0 >= requiredAmount } ?: false
+                        }
+
+                        if (canCraft) {
+                            // Consume the required resources
+                            request.requiredResource.forEachIndexed { index, requiredAmount ->
+                                val resourceName = when (index) {
+                                    0 -> "Logs"
+                                    1 -> "Stone"
+                                    2 -> "Ore"
+                                    3 -> "PlasticRods"
+                                    4 -> "Glass"
+                                    else -> null
+                                }
+                                resourceName?.let { resources[it]?.addAndGet(-requiredAmount) }
+                            }
+
+                            // Update UI with new resource quantities
+                            activity.runOnUiThread {
+                                woodTextView.text = resources["Logs"]?.get().toString()
+                                stoneTextView.text = resources["Stone"]?.get().toString()
+                                glassTextView.text = resources["Glass"]?.get().toString()
+                                oreTextView.text = resources["Ore"]?.get().toString()
+                                plasticTextView.text = resources["PlasticRods"]?.get().toString()
+                            }
+
+                            // Remove the request from the currentRequestList
+                            currentRequestList.remove(request)
+                            showOrders()
+                            craftingSuccessful = true
+                        }
+                    }
                 }
-                // Release worker and update worker avail
+                requestArrayLock.release()
+
+                if (craftingSuccessful) {
+                    // Increment score and update score UI
+                    val newScore = score.incrementAndGet()
+                    activity.runOnUiThread {
+                        updateScoreTextView(newScore)
+                    }
+                }
+
+                // Release worker and update worker availability
                 availableWorkers.release()
                 updateWorkersTextView()
-            }, 3, TimeUnit.SECONDS)
+            }, 10, TimeUnit.SECONDS)
         } else {
             // TODO: Show a message or update the UI to indicate that all workers are busy
         }
     }
+
+
 
     private fun updateScoreTextView(newScore: Int) {
         scoreTextView.text = "Fulfilled: $newScore"
@@ -227,20 +281,5 @@ class Game(
                 activity.runOnUiThread{orderArray[i].setImageResource(android.R.color.transparent)}
             }
         }
-        /*
-        var index = 0
-        for (item in currentRequestList){
-            when(item.name.toString()){
-                "PlasticChair" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.plastic_chair)}
-                "FoldingChair" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.folding_chair)}
-                "StoneBench" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.stone_bench)}
-                "StoneTable" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.stone_table)}
-                "ParkBench" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.park_bench)}
-                "CoffeeTable" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.coffee_table)}
-                "DiningTable" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.glass_table)}
-            }
-            ++index
-        }
-        */
     }
 }
