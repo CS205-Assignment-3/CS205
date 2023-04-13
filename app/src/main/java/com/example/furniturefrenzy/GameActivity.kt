@@ -9,11 +9,12 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Handler
+import android.view.View
 
 
 class GameActivity : AppCompatActivity() {
     private lateinit var game: Game
-    private var context: Context = this
     private lateinit var scoreTextView: TextView
     private lateinit var craft_1: Button
     private lateinit var craft_2: Button
@@ -27,13 +28,6 @@ class GameActivity : AppCompatActivity() {
     private lateinit var glassTextView: TextView
     private lateinit var oreTextView: TextView
     private lateinit var plasticTextView: TextView
-    //private lateinit var craftCoffeeTableButton: Button
-    //private lateinit var craftFoldingChairButton: Button
-    //private lateinit var craftGlassTableButton: Button
-    //private lateinit var craftParkBenchButton: Button
-    //private lateinit var craftPlasticChairButton: Button
-    //private lateinit var craftStoneBenchButton: Button
-    //private lateinit var craftStoneTable: Button
     private lateinit var woodStationButton: Button
     private lateinit var stoneStationButton: Button
     private lateinit var glassStationButton: Button
@@ -58,11 +52,39 @@ class GameActivity : AppCompatActivity() {
         game = Game(this, this, workerCount, workersTextView, woodTextView,
             stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,)
 
+        // Worker GIF display
+        // Function to show a GifImageView for a specific period of time
+        fun showGifImageView(gifImageView: pl.droidsonroids.gif.GifImageView, delayTime: Long) {
+            // Set the visibility to VISIBLE
+            gifImageView.visibility = View.VISIBLE
+
+            // Create a Handler object
+            val handler = Handler()
+
+            // Post a delayed runnable to hide the GifImageView after the specified delay time
+            handler.postDelayed({
+                gifImageView.visibility = View.GONE
+            }, delayTime)
+        }
+        val worker1 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_1)
+        val worker2 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_2)
+        val worker3 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_3)
+        val worker4 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_4)
+        val worker5 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_5)
+        val worker6 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_6)
+        // Hide the gif at the beginning
+        worker1.visibility = View.GONE
+        worker2.visibility = View.GONE
+        worker3.visibility = View.GONE
+        worker4.visibility = View.GONE
+        worker5.visibility = View.GONE
+        worker6.visibility = View.GONE
+
         //show dialogBox
         // 6x crafting bench (Inside dialogbox)
         // Produce crafting buttons
         // coffee table -> 1; folding chair -> 2; glass table -> 3; park bench -> 4; plastic chair -> 5; stone bench -> 6; stone table -> 7
-        fun showDialogBox() {
+        fun showDialogBox(callback: () -> Unit){
             val dialogBinding = layoutInflater.inflate(R.layout.dialogbox, null)
             val dialogBox = Dialog(this)
             dialogBox.setContentView(dialogBinding)
@@ -78,30 +100,37 @@ class GameActivity : AppCompatActivity() {
             var craftStoneTable = dialogBinding.findViewById<Button>(R.id.stoneTable)
             craftCoffeeTableButton.setOnClickListener {
                 game.craftOrder(1)
+                callback()
                 dialogBox.dismiss()
             }
             craftFoldingChairButton.setOnClickListener {
                 game.craftOrder(2)
+                callback()
                 dialogBox.dismiss()
             }
             craftGlassTableButton.setOnClickListener {
                 game.craftOrder(3)
+                callback()
                 dialogBox.dismiss()
             }
             craftParkBenchButton.setOnClickListener {
                 game.craftOrder(4)
+                callback()
                 dialogBox.dismiss()
             }
             craftPlasticChairButton.setOnClickListener {
                 game.craftOrder(5)
+                callback()
                 dialogBox.dismiss()
             }
             craftStoneBenchButton.setOnClickListener {
                 game.craftOrder(6)
+                callback()
                 dialogBox.dismiss()
             }
             craftStoneTable.setOnClickListener {
                 game.craftOrder(7)
+                callback()
                 dialogBox.dismiss()
             }
         }
@@ -115,24 +144,37 @@ class GameActivity : AppCompatActivity() {
         craft_6 = findViewById(R.id.craft_6)
 
         craft_1.setOnClickListener{
-            showDialogBox()
+            showDialogBox{
+                showGifImageView(worker1, 5000L)
+            }
         }
         craft_2.setOnClickListener{
-            showDialogBox()
+            showDialogBox{
+                showGifImageView(worker2, 5000L)
+            }
         }
         craft_3.setOnClickListener{
-            showDialogBox()
+            showDialogBox{
+                showGifImageView(worker3, 5000L)
+            }
         }
         craft_4.setOnClickListener{
-            showDialogBox()
+            showDialogBox{
+                showGifImageView(worker4, 5000L)
+            }
         }
         craft_5.setOnClickListener{
-            showDialogBox()
+            showDialogBox{
+                showGifImageView(worker5, 5000L)
+            }
         }
         craft_6.setOnClickListener{
-            showDialogBox()
+            showDialogBox{
+                showGifImageView(worker6, 5000L)
+            }
         }
 
+        // Gameover button
         gameOverButton = findViewById(R.id.gameOver)
 
         // 5x resource sites
