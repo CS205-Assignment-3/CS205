@@ -26,7 +26,7 @@ class Game(
     private val oreTextView: TextView,
     private val plasticTextView: TextView,
     private val scoreTextView: TextView,
-    private  val imageView: ImageView
+    private  val orderArray: Array<ImageView>
 ) {
     // Game resources
     private val score = AtomicInteger(0)
@@ -92,14 +92,12 @@ class Game(
                 }
 
                 // Random Request
-                if(currentRequestList.size < 9){
+                if(currentRequestList.size < 10){
                     if (requestArrayLock.tryAcquire()){
                         val randomRequest = finalResourceList.random()
                         currentRequestList.add(randomRequest)
-                        activity.runOnUiThread{
-                            imageView.setImageResource(R.drawable.plastic_chair)
-                        }
                         println("Added " + randomRequest)
+                        showOrders()
                         requestArrayLock.release()
                     }
                 }
@@ -210,5 +208,39 @@ class Game(
         executor.shutdownNow()
         gameExecutor.shutdownNow()
         continueGame = false
+    }
+
+    fun showOrders(){
+        for (i in 0..9){
+            if (i < currentRequestList.size){
+                when(currentRequestList[i].name.toString()){
+                    "PlasticChair" -> activity.runOnUiThread{orderArray[i].setImageResource(R.drawable.plastic_chair)}
+                    "FoldingChair" -> activity.runOnUiThread{orderArray[i].setImageResource(R.drawable.folding_chair)}
+                    "StoneBench" -> activity.runOnUiThread{orderArray[i].setImageResource(R.drawable.stone_bench)}
+                    "StoneTable" -> activity.runOnUiThread{orderArray[i].setImageResource(R.drawable.stone_table)}
+                    "ParkBench" -> activity.runOnUiThread{orderArray[i].setImageResource(R.drawable.park_bench)}
+                    "CoffeeTable" -> activity.runOnUiThread{orderArray[i].setImageResource(R.drawable.coffee_table)}
+                    "DiningTable" -> activity.runOnUiThread{orderArray[i].setImageResource(R.drawable.glass_table)}
+                }
+            }
+            else{
+                activity.runOnUiThread{orderArray[i].setImageResource(android.R.color.transparent)}
+            }
+        }
+        /*
+        var index = 0
+        for (item in currentRequestList){
+            when(item.name.toString()){
+                "PlasticChair" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.plastic_chair)}
+                "FoldingChair" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.folding_chair)}
+                "StoneBench" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.stone_bench)}
+                "StoneTable" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.stone_table)}
+                "ParkBench" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.park_bench)}
+                "CoffeeTable" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.coffee_table)}
+                "DiningTable" -> activity.runOnUiThread{orderArray[index].setImageResource(R.drawable.glass_table)}
+            }
+            ++index
+        }
+        */
     }
 }
