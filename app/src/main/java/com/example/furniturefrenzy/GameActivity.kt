@@ -4,6 +4,7 @@ import Game
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 
 class GameActivity : AppCompatActivity() {
@@ -22,6 +23,7 @@ class GameActivity : AppCompatActivity() {
     private lateinit var craftPlasticChairButton: Button
     private lateinit var craftStoneBenchButton: Button
     private lateinit var craftStoneTable: Button
+    private lateinit var imageView: ImageView
     private lateinit var woodStationButton: Button
     private lateinit var stoneStationButton: Button
     private lateinit var glassStationButton: Button
@@ -43,8 +45,9 @@ class GameActivity : AppCompatActivity() {
         glassTextView = findViewById(R.id.glassTextView)
         oreTextView = findViewById(R.id.oreTextView)
         plasticTextView = findViewById(R.id.plasticTextView)
+        imageView = findViewById(R.id.order)
         game = Game(this, this, workerCount, workersTextView, woodTextView,
-            stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,)
+            stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView, imageView )
         game.startGame()
         // Action listeners
 //        craftCoffeeTableButton = findViewById(R.id.coffeeTable)
@@ -123,6 +126,6 @@ class GameActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         game = Game(this, this, workerCount, workersTextView, woodTextView,
-            stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,) // Create a new game instance when returning to the activity
+            stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView, imageView) // Create a new game instance when returning to the activity
     }
 }

@@ -1,8 +1,10 @@
 import android.content.Context
 import android.content.Intent
+import android.widget.ImageView
 import android.widget.TextView
 import com.example.furniturefrenzy.GameActivity
 import com.example.furniturefrenzy.GameOverActivity
+import com.example.furniturefrenzy.R
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.Semaphore
@@ -24,6 +26,7 @@ class Game(
     private val oreTextView: TextView,
     private val plasticTextView: TextView,
     private val scoreTextView: TextView,
+    private  val imageView: ImageView
 ) {
     // Game resources
     private val score = AtomicInteger(0)
@@ -78,7 +81,6 @@ class Game(
             // At game start
             while (continueGame) {
                 Thread.sleep(currentRequestInterval)
-
                 // Request Timing
                 val elapsedTime = System.currentTimeMillis() - startTime
                 if (elapsedTime > reductionTime) {
@@ -90,19 +92,25 @@ class Game(
                 }
 
                 // Random Request
-                if(currentRequestList.size <= 9){
+                if(currentRequestList.size < 9){
                     if (requestArrayLock.tryAcquire()){
                         val randomRequest = finalResourceList.random()
                         currentRequestList.add(randomRequest)
-                        //queue1TextView.setImageResource(R.drawable.plastic_chair)
+                        activity.runOnUiThread{
+                            imageView.setImageResource(R.drawable.plastic_chair)
+                        }
                         println("Added " + randomRequest)
                         requestArrayLock.release()
                     }
                 }
                 else{
                     println("GAME OVER")
+                    continueGame = false
                     break
                 }
+            }
+            activity.runOnUiThread{
+                showGameOverScreen()
             }
         }
     }
@@ -201,5 +209,6 @@ class Game(
         // Cancel any pending tasks in the executor
         executor.shutdownNow()
         gameExecutor.shutdownNow()
+        continueGame = false
     }
 }
