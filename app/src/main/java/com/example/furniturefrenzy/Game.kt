@@ -73,9 +73,9 @@ class Game(
     fun startGame(){
         gameExecutor.execute{
             val initialRequestInterval = 10000L // x: requests come in every 10 seconds at start
-            val intervalReduction = 5000L // z: subtract 5 second from the request interval
-            val intervalFloor = 3000L // the minimum request interval : 3 seconds
-            val reductionTime = 3000L // y: after 3 seconds, requests will come in faster
+            val intervalReduction = 3000L // z: subtract 3 second from the request interval
+            val intervalFloor = 9000L // the minimum request interval : 9 seconds
+            val reductionTime = 9000L // y: after 9 seconds, requests will come in faster
             val startTime = System.currentTimeMillis()
             var currentRequestInterval = initialRequestInterval
             // At game start
@@ -108,7 +108,7 @@ class Game(
                 }
             }
             activity.runOnUiThread{
-                showGameOverScreen()
+                showGameOverScreen(System.currentTimeMillis()-startTime)
             }
         }
     }
@@ -248,11 +248,11 @@ class Game(
         workersTextView.text = "$available/$workerCount"
     }
 
-    fun showGameOverScreen() {
+    fun showGameOverScreen(timeTaken:Long) {
         reset() // Reset the game state before showing the Game Over screen
         val intent = Intent(context, GameOverActivity::class.java)
         intent.putExtra("score", score.get())
-        intent.putExtra("timeTaken", 60000) // Time in milliseconds
+        intent.putExtra("timeTaken", timeTaken.toInt()) // Time in milliseconds
         context.startActivity(intent)
     }
 
