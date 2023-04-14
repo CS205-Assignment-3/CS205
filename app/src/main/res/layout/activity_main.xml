@@ -4,25 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/factory_2"
+    android:background="@drawable/factory_main"
     android:rotationX="0"
     tools:context=".MainActivity">
-
-    <TextView
-        android:id="@+id/logoView"
-        android:layout_width="385dp"
-        android:layout_height="110dp"
-        android:fontFamily="@font/cookie"
-        android:text="Factory Master"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display2"
-        android:textColor="#FFC107"
-        android:textSize="80sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.293" />
 
     <Button
         android:id="@+id/select_level"
