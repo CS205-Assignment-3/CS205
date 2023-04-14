@@ -61,13 +61,16 @@ class Game(
         // Final Resource Info
         // Index is logs, stone, ore, plasticrods, glass
 
-        finalResourceList.add(finalResource("PlasticChair", listOf(0, 0, 0, 5, 0)))
+        // coffee table -> 1; folding chair -> 2; glass table -> 3; park bench -> 4; plastic chair -> 5; stone bench -> 6; stone table -> 7
+        finalResourceList.add(finalResource("CoffeeTable", listOf(6, 0, 0, 0, 4)))
         finalResourceList.add(finalResource("FoldingChair", listOf(0, 0, 5, 0, 0)))
+        finalResourceList.add(finalResource("DiningTable", listOf(0, 0, 2, 0, 8)))
+        finalResourceList.add(finalResource("ParkBench", listOf(5, 0, 5, 0, 0)))
+        finalResourceList.add(finalResource("PlasticChair", listOf(0, 0, 0, 5, 0)))
         finalResourceList.add(finalResource("StoneBench", listOf(0, 5, 0, 0, 0)))
         finalResourceList.add(finalResource("StoneTable", listOf(0, 10, 0, 0, 0)))
-        finalResourceList.add(finalResource("ParkBench", listOf(5, 0, 5, 0, 0)))
-        finalResourceList.add(finalResource("CoffeeTable", listOf(6, 0, 0, 0, 4)))
-        finalResourceList.add(finalResource("DiningTable", listOf(0, 0, 2, 0, 8)))
+
+
     }
     // Add a ReentrantLock for atomic resource updates
     private val resourceLock = ReentrantLock()
@@ -136,12 +139,6 @@ class Game(
 
             // Schedule the task
             executor.schedule({
-
-//                testscore function. Remove ltr
-//                val newScore = score.incrementAndGet()
-//                activity.runOnUiThread {
-//                    updateScoreTextView(newScore)
-//                }
                 // Perform atomic update of the selected resource using ReentrantLock
                 resourceLock.withLock {
                     when (resourceType) {
