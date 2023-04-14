@@ -59,9 +59,9 @@ class Game(
     fun startGame(){
         gameExecutor.execute{
             val initialRequestInterval = 10000L // x: requests come in every 10 seconds at start
-            val intervalReduction = 3000L // z: subtract 3 second from the request interval
-            val intervalFloor = 9000L // the minimum request interval : 9 seconds
-            val reductionTime = 9000L // y: after 9 seconds, requests will come in faster
+            val intervalReduction = 2000L // z: subtract 2 second from the request interval
+            val intervalFloor = 5000L // the minimum request interval : 5 seconds
+            val reductionTime = 5000L // y: after 5 seconds, requests will come in faster
             val startTime = System.currentTimeMillis()
             var currentRequestInterval = initialRequestInterval
 
@@ -198,10 +198,11 @@ class Game(
 
                             // Remove the request from the currentRequestList
                             requestArrayLock.acquire()
-                            currentRequestList.remove(request)
+                            if(currentRequestList.remove(request)){
+                                craftingSuccessful = true
+                            }
                             showOrders()
                             requestArrayLock.release()
-                            craftingSuccessful = true
                         }
                     }
                 }
@@ -215,7 +216,7 @@ class Game(
                 // Release worker and update worker availability
                 availableWorkers.release()
                 updateWorkersTextView()
-            }, 1, TimeUnit.SECONDS)
+            }, 5, TimeUnit.SECONDS)
         } else {
         }
     }

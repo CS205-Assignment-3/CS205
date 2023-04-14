@@ -154,6 +154,7 @@ class GameActivity : AppCompatActivity() {
             var craftPlasticChairButton = dialogBinding.findViewById<Button>(R.id.plasticChair)
             var craftStoneBenchButton = dialogBinding.findViewById<Button>(R.id.stoneBench)
             var craftStoneTable = dialogBinding.findViewById<Button>(R.id.stoneTable)
+            var closeDialogButton = dialogBinding.findViewById<Button>(R.id.closeDialogbox)
 
             //boolean var
             craftCoffeeTableButton.setOnClickListener {
@@ -189,6 +190,9 @@ class GameActivity : AppCompatActivity() {
             craftStoneTable.setOnClickListener {
                 game.craftOrder(7)
                 callback()
+                dialogBox.dismiss()
+            }
+            closeDialogButton.setOnClickListener {
                 dialogBox.dismiss()
             }
         }
