@@ -29,13 +29,6 @@ class GameActivity : AppCompatActivity() {
     private lateinit var glassTextView: TextView
     private lateinit var oreTextView: TextView
     private lateinit var plasticTextView: TextView
-    private lateinit var craftCoffeeTableButton: Button
-    private lateinit var craftFoldingChairButton: Button
-    private lateinit var craftGlassTableButton: Button
-    private lateinit var craftParkBenchButton: Button
-    private lateinit var craftPlasticChairButton: Button
-    private lateinit var craftStoneBenchButton: Button
-    private lateinit var craftStoneTable: Button
     private lateinit var orderImageView1: ImageView
     private lateinit var orderImageView2: ImageView
     private lateinit var orderImageView3: ImageView
@@ -84,14 +77,6 @@ class GameActivity : AppCompatActivity() {
             stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,
             orderArray)
         game.startGame()
-        // Action listeners
-//        craftCoffeeTableButton = findViewById(R.id.coffeeTable)
-//        craftFoldingChairButton = findViewById(R.id.foldingChair)
-//        craftGlassTableButton = findViewById(R.id.glassTable)
-//        craftParkBenchButton = findViewById(R.id.parkBench)
-//        craftPlasticChairButton = findViewById(R.id.plasticChair)
-//        craftStoneBenchButton = findViewById(R.id.stoneBench)
-//        craftStoneTable = findViewById(R.id.stoneTable)
 
         // Worker GIF display
         // Function to show a GifImageView for a specific period of time
@@ -245,39 +230,6 @@ class GameActivity : AppCompatActivity() {
             game.extractResource(5)
         }
 
-
-        // 6x crafting bench (Inside dialogbox)
-        // Produce crafting buttons
-        // coffee table -> 1; folding chair -> 2; glass table -> 3; park bench -> 4; plastic chair -> 5; stone bench -> 6; stone table -> 7
-        /*
-        craftCoffeeTableButton.setOnClickListener {
-            game.craftOrder(1)
-        }
-
-        craftFoldingChairButton.setOnClickListener {
-            game.craftOrder(2)
-        }
-
-        craftGlassTableButton.setOnClickListener {
-            game.craftOrder(3)
-        }
-
-        craftParkBenchButton.setOnClickListener {
-            game.craftOrder(4)
-        }
-
-        craftPlasticChairButton.setOnClickListener {
-            game.craftOrder(5)
-        }
-
-        craftStoneBenchButton.setOnClickListener {
-            game.craftOrder(6)
-        }
-
-        craftStoneTable.setOnClickListener {
-            game.craftOrder(7)
-        }
-         */
         gameOverButton.setOnClickListener {
             game.showGameOverScreen()
         }
