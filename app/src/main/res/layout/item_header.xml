@@ -34,7 +34,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="3"
-        android:text="Time Taken" />
+        android:text="Time" />
 
     <TextView
         android:id="@+id/scoreTextView"

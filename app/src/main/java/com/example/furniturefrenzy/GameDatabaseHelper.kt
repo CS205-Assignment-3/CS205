@@ -72,4 +72,9 @@ class GameDatabaseHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         cursor.close()
         return records
     }
+
+    fun deleteAllRecords() {
+        val db = writableDatabase
+        db.execSQL("DELETE FROM $TABLE_NAME")
+    }
 }

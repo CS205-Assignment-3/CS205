@@ -20,6 +20,8 @@ class LeaderboardActivity : AppCompatActivity() {
     private lateinit var dbHelper: GameDatabaseHelper
     private lateinit var firestore: FirebaseFirestore
     private lateinit var globalRecyclerView: RecyclerView
+    private lateinit var localRecyclerView: RecyclerView
+
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,9 +32,8 @@ class LeaderboardActivity : AppCompatActivity() {
         firestore = FirebaseFirestore.getInstance()
 
         val records = dbHelper.getAllRecords()
-        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = RecordAdapter(records, false)
+        localRecyclerView = findViewById(R.id.recyclerView)
+        localRecyclerView.layoutManager = LinearLayoutManager(this)
 
         globalRecyclerView = findViewById(R.id.globalRecyclerView)
         globalRecyclerView.layoutManager = LinearLayoutManager(this)
@@ -43,10 +44,19 @@ class LeaderboardActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_REORDER_TO_FRONT
             startActivityIfNeeded(intent, 0)
         }
+
+        val clearAllButton = findViewById<Button>(R.id.clear)
+        clearAllButton.setOnClickListener {
+            dbHelper.deleteAllRecords()
+            // Refresh the local leaderboard after deletion
+            val records = dbHelper.getAllRecords()
+            loadLocalRecords()
+        }
     }
 
     override fun onResume() {
         super.onResume()
+        loadLocalRecords()
         fetchGlobalRecords()
     }
 
@@ -75,6 +85,11 @@ class LeaderboardActivity : AppCompatActivity() {
                 Log.w("Firebase", "Error getting documents: ", exception)
             }
         }
+    }
+
+    private fun loadLocalRecords() {
+        val records = dbHelper.getAllRecords()
+        localRecyclerView.adapter = RecordAdapter(records, false)
     }
 
     override fun onDestroy() {
