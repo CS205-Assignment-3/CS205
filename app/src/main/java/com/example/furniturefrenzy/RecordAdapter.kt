@@ -46,7 +46,7 @@ class RecordAdapter(private val records: List<Record>, private val isGlobal: Boo
             val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
 
             holder.serialTextView.text = "$position."
-            holder.timeTakenTextView.text = "Time Taken: $minutes min ${seconds.toInt()} sec"
+            holder.timeTakenTextView.text = "$minutes min ${seconds.toInt()} sec"
             holder.scoreTextView.text = record.score.toString()
             if (isGlobal) {
                 holder.userNameTextView.text = record.userName
