@@ -114,6 +114,7 @@ class GameActivity : AppCompatActivity() {
             val dialogBox = Dialog(this)
             dialogBox.setContentView(dialogBinding)
             dialogBox.setCancelable(true)
+            dialogBox.setCanceledOnTouchOutside(true)
             dialogBox.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             dialogBox.show()
             var craftCoffeeTableButton = dialogBinding.findViewById<Button>(R.id.coffeeTable)
