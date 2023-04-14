@@ -69,7 +69,6 @@ class Game(
             while (sharedPreferences.getBoolean("continueGame", true)) {
                 Thread.sleep(currentRequestInterval)
                 // Request Timing
-                println("running")
                 val elapsedTime = System.currentTimeMillis() - startTime
 
                 if (elapsedTime > reductionTime) {
