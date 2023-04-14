@@ -15,7 +15,8 @@
         <activity
             android:name=".GameOverActivity"
             android:exported="false"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape"
+            android:noHistory="true"/>
         <activity
             android:name=".GameActivity"
             android:exported="false"

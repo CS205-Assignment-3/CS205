@@ -48,13 +48,13 @@ class Game(
 
     // Add a ReentrantLock for atomic resource updates
     private val resourceLock = ReentrantLock()
-    // Orders arrays
+    // sharedPreference to check whether to start the game
+    private val sharedPreferences = context.getSharedPreferences("continueGame",Context.MODE_PRIVATE)
     // Instantiate thread pool and semaphore for tracking
     private val executor: ScheduledExecutorService = Executors.newScheduledThreadPool(workerCount)
     private val gameExecutor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
     private val availableWorkers = Semaphore(workerCount)
     private val requestArrayLock = Semaphore(1)
-    private var continueGame = true
 
     fun startGame(){
         gameExecutor.execute{
@@ -66,9 +66,10 @@ class Game(
             var currentRequestInterval = initialRequestInterval
 
             // At game start
-            while (continueGame) {
+            while (sharedPreferences.getBoolean("continueGame", true)) {
                 Thread.sleep(currentRequestInterval)
                 // Request Timing
+                println("running")
                 val elapsedTime = System.currentTimeMillis() - startTime
 
                 if (elapsedTime > reductionTime) {
@@ -86,12 +87,11 @@ class Game(
                     requestArrayLock.release()
                 }
                 else{
-                    continueGame = false
+                    activity.runOnUiThread{
+                        showGameOverScreen(System.currentTimeMillis()-startTime)
+                    }
                     break
                 }
-            }
-            activity.runOnUiThread{
-                showGameOverScreen(System.currentTimeMillis()-startTime)
             }
         }
     }
@@ -242,7 +242,6 @@ class Game(
         // Cancel any pending tasks in the executor
         executor.shutdownNow()
         gameExecutor.shutdownNow()
-        continueGame = false
     }
 
     fun showOrders(){

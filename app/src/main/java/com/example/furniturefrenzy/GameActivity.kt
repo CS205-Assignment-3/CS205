@@ -55,6 +55,11 @@ class GameActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
+        //create sharedPreference for continueGame
+        val sharedPreferences = getSharedPreferences("continueGame",Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.putBoolean("continueGame", true)
+        editor.commit()
         //initialise currentRequestList
         currentRequestList = ArrayList<finalResource>()
         //initialise resources
@@ -268,5 +273,13 @@ class GameActivity : AppCompatActivity() {
         game = Game(this, this, workerCount, workersTextView, woodTextView,
             stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,
             orderArray, currentRequestList,resources, score) // Create a new game instance when returning to the activity
+    }
+    override fun onStop() {
+        super.onStop()
+        val sharedPreferences = getSharedPreferences("continueGame",Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+        editor.clear()
+        editor.putBoolean("continueGame", false)
+        editor.commit()
     }
 }
