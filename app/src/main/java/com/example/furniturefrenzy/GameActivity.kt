@@ -12,6 +12,8 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Handler
 import android.view.View
+import java.util.concurrent.ConcurrentHashMap
+import java.util.concurrent.atomic.AtomicInteger
 
 
 class GameActivity : AppCompatActivity() {
@@ -45,11 +47,20 @@ class GameActivity : AppCompatActivity() {
     private lateinit var oreStationButton: Button
     private lateinit var plasticStationButton: Button
     private val workerCount = 5 // Set number of worker here
-
+    private lateinit var currentRequestList: ArrayList<finalResource>
+    private var resources = ConcurrentHashMap<String, AtomicInteger>()
+    data class finalResource(val name: String, val requiredResource: List<Int>)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game)
-
+        //initialise currentRequestList
+        currentRequestList = ArrayList<finalResource>()
+        //initialise resources
+        resources["Logs"] = AtomicInteger(0)
+        resources["Stone"] = AtomicInteger(0)
+        resources["Ore"] = AtomicInteger(0)
+        resources["PlasticRods"] = AtomicInteger(0)
+        resources["Glass"] = AtomicInteger(0)
         // Create game instance
         scoreTextView = findViewById(R.id.scoreTextView)
         workersTextView = findViewById(R.id.workersTextView)
@@ -74,7 +85,7 @@ class GameActivity : AppCompatActivity() {
                                 orderImageView9,orderImageView10)
         game = Game(this, this, workerCount, workersTextView, woodTextView,
             stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,
-            orderArray)
+            orderArray, currentRequestList,resources)
         game.startGame()
 
         // Worker GIF display
@@ -236,6 +247,7 @@ class GameActivity : AppCompatActivity() {
                                 orderImageView5,orderImageView6,orderImageView7,orderImageView8,
                                 orderImageView9,orderImageView10)
         game = Game(this, this, workerCount, workersTextView, woodTextView,
-            stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView, orderArray) // Create a new game instance when returning to the activity
+            stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,
+            orderArray, currentRequestList,resources) // Create a new game instance when returning to the activity
     }
 }

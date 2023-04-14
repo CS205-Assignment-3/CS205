@@ -13,6 +13,7 @@ import java.util.concurrent.atomic.AtomicInteger
 import java.util.concurrent.ConcurrentHashMap
 import java.util.concurrent.locks.ReentrantLock
 import kotlin.concurrent.withLock
+import com.example.furniturefrenzy.GameActivity.finalResource
 
 
 class Game(
@@ -26,36 +27,12 @@ class Game(
     private val oreTextView: TextView,
     private val plasticTextView: TextView,
     private val scoreTextView: TextView,
-    private val orderArray: Array<ImageView>
+    private val orderArray: Array<ImageView>,
+    private val currentRequestList: ArrayList<finalResource>,
+    private val resources: ConcurrentHashMap<String, AtomicInteger>
 ) {
     // Game resources
     private val score = AtomicInteger(0)
-    private val resources = ConcurrentHashMap<String, AtomicInteger>()
-    init {
-        // Initialize resources with their initial quantities
-        resources["Logs"] = AtomicInteger(0)
-        resources["Stone"] = AtomicInteger(0)
-        resources["Ore"] = AtomicInteger(0)
-        resources["PlasticRods"] = AtomicInteger(0)
-        resources["Glass"] = AtomicInteger(0)
-    }
-    data class finalResource(val name: String, val requiredResource: List<Int>) {
-        override fun equals(other: Any?): Boolean {
-            if (this === other) return true
-            if (javaClass != other?.javaClass) return false
-
-            other as finalResource
-
-            if (name != other.name) return false
-
-            return true
-        }
-
-        override fun hashCode(): Int {
-            return name.hashCode()
-        }
-    }
-
     private val finalResourceList = ArrayList<finalResource>()
     init {
         // Final Resource Info
@@ -76,7 +53,6 @@ class Game(
     private val resourceLock = ReentrantLock()
 
     // Orders arrays
-    private val currentRequestList = ArrayList<finalResource>()
     // Instantiate thread pool and semaphore for tracking
     private val executor: ScheduledExecutorService = Executors.newScheduledThreadPool(workerCount)
     private val gameExecutor: ScheduledExecutorService = Executors.newSingleThreadScheduledExecutor()
@@ -99,6 +75,8 @@ class Game(
             var currentRequestInterval = initialRequestInterval
             // At game start
             while (continueGame) {
+                println("main game "+ currentRequestList)
+                println("main game "+ resources)
                 Thread.sleep(currentRequestInterval)
                 // Request Timing
                 val elapsedTime = System.currentTimeMillis() - startTime
@@ -184,6 +162,8 @@ class Game(
     // Index 1 = plastic chair, 2 = folding chair, 3 =stone bench, 4 = stone table, 5 = park bench, 6 = coffee table, 7 = dining table
     //CONSUMER
     fun craftOrder(orderType: Int) {
+        println("craft order " + currentRequestList)
+        println("craft order " + resources)
         if (availableWorkers.tryAcquire()) {
             // Update available workers
             updateWorkersTextView()
