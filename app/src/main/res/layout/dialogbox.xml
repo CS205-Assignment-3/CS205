@@ -8,8 +8,8 @@
 
     <Button
         android:id="@+id/coffeeTable"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="134dp"
         android:layout_marginEnd="2dp"
@@ -24,8 +24,8 @@
 
     <Button
         android:id="@+id/foldingChair"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="134dp"
         android:layout_marginEnd="2dp"
@@ -36,12 +36,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/stoneBench"
         app:layout_constraintStart_toEndOf="@+id/plasticChair"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/glassTable"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="134dp"
         android:layout_marginEnd="190dp"
@@ -56,8 +57,8 @@
 
     <Button
         android:id="@+id/parkBench"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="134dp"
         android:layout_marginEnd="2dp"
@@ -72,9 +73,9 @@
 
     <Button
         android:id="@+id/plasticChair"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="140dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="143dp"
         android:layout_marginTop="134dp"
         android:layout_marginEnd="2dp"
         android:layout_marginBottom="207dp"
@@ -84,12 +85,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/foldingChair"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/stoneBench"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="134dp"
         android:layout_marginEnd="2dp"
@@ -100,12 +102,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/stoneTable"
         app:layout_constraintStart_toEndOf="@+id/foldingChair"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/stoneTable"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_marginStart="2dp"
         android:layout_marginTop="134dp"
         android:layout_marginEnd="2dp"
@@ -117,4 +120,5 @@
         app:layout_constraintEnd_toStartOf="@+id/parkBench"
         app:layout_constraintStart_toEndOf="@+id/stoneBench"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
