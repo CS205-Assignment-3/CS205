@@ -92,6 +92,76 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.956" />
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_8"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_9"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.793"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.374" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_10"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.688" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_11"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.902" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_7"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.51" />
+
     <TextView
         android:id="@+id/plasticTextView"
         android:layout_width="38dp"
@@ -475,11 +545,11 @@
         app:layout_constraintVertical_bias="0.043" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/small_wood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView5"
+        app:layout_constraintBottom_toTopOf="@+id/small_stone"
         app:layout_constraintEnd_toEndOf="@+id/mine"
         app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toEndOf="@+id/smelters"
@@ -488,10 +558,10 @@
         app:srcCompat="@drawable/wood" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/small_glass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/imageView6"
+        app:layout_constraintBottom_toTopOf="@+id/small_plastic"
         app:layout_constraintEnd_toEndOf="@+id/smelters"
         app:layout_constraintHorizontal_bias="0.681"
         app:layout_constraintStart_toEndOf="@+id/craft_2"
@@ -500,10 +570,10 @@
         app:srcCompat="@drawable/glass" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/small_ore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        app:layout_constraintBottom_toTopOf="@+id/small_wood"
         app:layout_constraintEnd_toEndOf="@+id/mine"
         app:layout_constraintHorizontal_bias="0.609"
         app:layout_constraintStart_toEndOf="@+id/smelters"
@@ -512,7 +582,7 @@
         app:srcCompat="@drawable/ore" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/small_stone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -525,7 +595,7 @@
         app:srcCompat="@drawable/stone" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/small_plastic"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="41dp"

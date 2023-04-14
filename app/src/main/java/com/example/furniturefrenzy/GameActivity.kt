@@ -108,6 +108,11 @@ class GameActivity : AppCompatActivity() {
         val worker4 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_4)
         val worker5 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_5)
         val worker6 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_6)
+        val worker7 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_7) //glass
+        val worker8 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_8) //plastic
+        val worker9 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_9) //ore
+        val worker10 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_10) //wood
+        val worker11 = findViewById<pl.droidsonroids.gif.GifImageView>(R.id.worker_11) //stone
         // Hide the gif at the beginning
         worker1.visibility = View.GONE
         worker2.visibility = View.GONE
@@ -115,6 +120,11 @@ class GameActivity : AppCompatActivity() {
         worker4.visibility = View.GONE
         worker5.visibility = View.GONE
         worker6.visibility = View.GONE
+        worker7.visibility = View.GONE //glass
+        worker8.visibility = View.GONE //plastic
+        worker9.visibility = View.GONE //ore
+        worker10.visibility = View.GONE //wood
+        worker11.visibility = View.GONE //stone
 
         //show dialogBox
         // 6x crafting bench (Inside dialogbox)
@@ -218,26 +228,31 @@ class GameActivity : AppCompatActivity() {
         woodStationButton = findViewById(R.id.forest)
         woodStationButton.setOnClickListener {
             game.extractResource(1)
+            showGifImageView(worker10, 1000L)
         }
 
         stoneStationButton = findViewById(R.id.digsite)
         stoneStationButton.setOnClickListener {
             game.extractResource(2)
+            showGifImageView(worker11, 1000L)
         }
 
         glassStationButton = findViewById(R.id.smelters)
         glassStationButton.setOnClickListener {
             game.extractResource(3)
+            showGifImageView(worker7, 1000L)
         }
 
         oreStationButton = findViewById(R.id.mine)
         oreStationButton.setOnClickListener {
             game.extractResource(4)
+            showGifImageView(worker9, 1000L)
         }
 
         plasticStationButton = findViewById(R.id.factory)
         plasticStationButton.setOnClickListener {
             game.extractResource(5)
+            showGifImageView(worker8, 1000L)
         }
     }
 
