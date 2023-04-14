@@ -116,6 +116,10 @@ class Game(
                     val randomRequest = finalResourceList.random()
                     currentRequestList.add(randomRequest)
                     println("Added " + randomRequest)
+                    println("Printing currentRequestList in main game loop")
+                    for (value in currentRequestList){
+                        println(value)
+                    }
                     showOrders()
                     requestArrayLock.release()
 
@@ -188,19 +192,14 @@ class Game(
             executor.schedule({
                 var craftingSuccessful = false
 
-                requestArrayLock.acquire()
+//                requestArrayLock.acquire()
+//                println("Printing currentRequestList in oncraft")
+//                for (value in currentRequestList){
+//                    println(value)
+//                }
+
                 val request = finalResourceList.getOrNull(orderType - 1)
-                println("Request is ")
-                println(request)
-                println("Entering checking if array")
-                if (request != null && currentRequestList.contains(request)) {
-                    println("Request in array")
-
-                    val newScore = score.incrementAndGet()
-                    activity.runOnUiThread {
-                        updateScoreTextView(newScore)
-                    }
-
+                if (request != null) {
                     // Check if there are enough resources to craft the product
                     resourceLock.withLock {
                         var canCraft = true
@@ -221,9 +220,6 @@ class Game(
                                     canCraft = false
                                     break
                                 }
-                            } else {
-                                canCraft = false
-                                break
                             }
                         }
 
@@ -260,8 +256,7 @@ class Game(
                         }
                     }
                 }
-                requestArrayLock.release()
-
+//                requestArrayLock.release()
                 if (craftingSuccessful) {
                     // Increment score and update score UI
                     val newScore = score.incrementAndGet()
