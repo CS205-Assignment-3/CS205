@@ -101,7 +101,7 @@
         android:src="@drawable/worker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
+        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.913" />
@@ -129,7 +129,7 @@
         android:src="@drawable/worker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintHorizontal_bias="0.811"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.688" />
@@ -143,10 +143,10 @@
         android:src="@drawable/worker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.838"
+        app:layout_constraintHorizontal_bias="0.773"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.902" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/worker_7"
@@ -157,10 +157,10 @@
         android:src="@drawable/worker"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.51" />
+        app:layout_constraintVertical_bias="0.515" />
 
     <TextView
         android:id="@+id/plasticTextView"
@@ -171,6 +171,7 @@
         android:text="0"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/workersTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -186,6 +187,7 @@
         android:text="0"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/oreTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mine"
@@ -265,6 +267,7 @@
         android:text="Digsite"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/smelters"
         app:layout_constraintTop_toBottomOf="@+id/forest" />
 
@@ -276,6 +279,7 @@
         android:layout_marginTop="68dp"
         android:text="Fulfilled: 0"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -287,6 +291,7 @@
         android:text="0/5"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -302,7 +307,9 @@
         android:layout_marginBottom="19dp"
         android:text="0"
         android:textAlignment="center"
+        android:textColor="#454545"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/stoneTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mine"
@@ -317,6 +324,7 @@
         android:text="0"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/plasticTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/forest"
@@ -331,6 +339,7 @@
         android:text="0"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/glassTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/mine"
@@ -549,12 +558,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/small_stone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/mine"
-        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/smelters"
         app:layout_constraintTop_toBottomOf="@+id/mine"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.372"
         app:srcCompat="@drawable/wood" />
 
     <ImageView
@@ -563,22 +572,22 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/small_plastic"
         app:layout_constraintEnd_toEndOf="@+id/smelters"
-        app:layout_constraintHorizontal_bias="0.681"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/craft_2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.519"
+        app:layout_constraintVertical_bias="0.667"
         app:srcCompat="@drawable/glass" />
 
     <ImageView
         android:id="@+id/small_ore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/small_wood"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/mine"
-        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/smelters"
         app:layout_constraintTop_toBottomOf="@+id/order_9"
-        app:layout_constraintVertical_bias="0.226"
+        app:layout_constraintVertical_bias="0.29"
         app:srcCompat="@drawable/ore" />
 
     <ImageView
@@ -588,10 +597,10 @@
         android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/digsite"
-        app:layout_constraintHorizontal_bias="0.609"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/smelters"
         app:layout_constraintTop_toBottomOf="@+id/forest"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.797"
         app:srcCompat="@drawable/stone" />
 
     <ImageView
@@ -601,10 +610,10 @@
         android:layout_marginTop="41dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/factory"
-        app:layout_constraintHorizontal_bias="0.64"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/craft_2"
         app:layout_constraintTop_toBottomOf="@+id/smelters"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.649"
         app:srcCompat="@drawable/plastic" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
