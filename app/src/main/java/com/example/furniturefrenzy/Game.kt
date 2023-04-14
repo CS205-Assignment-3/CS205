@@ -26,7 +26,7 @@ class Game(
     private val oreTextView: TextView,
     private val plasticTextView: TextView,
     private val scoreTextView: TextView,
-    private  val orderArray: Array<ImageView>
+    private val orderArray: Array<ImageView>
 ) {
     // Game resources
     private val score = AtomicInteger(0)

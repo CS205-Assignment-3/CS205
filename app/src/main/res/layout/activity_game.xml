@@ -140,7 +140,6 @@
         android:id="@+id/factory"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="415dp"
         android:layout_marginEnd="122dp"
         android:layout_marginBottom="45dp"
         android:alpha="0.01"
@@ -148,8 +147,6 @@
         android:text="Factory"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/forest"
-        app:layout_constraintStart_toEndOf="@+id/gameOver"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/smelters" />
 
     <Button
@@ -206,18 +203,6 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/gameOver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="End"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.415"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/workersTextView"
@@ -355,13 +340,11 @@
         android:id="@+id/craft_6"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginEnd="21dp"
         android:layout_marginBottom="44dp"
         android:alpha="0.01"
         android:color="#66FF0000"
         android:text="Crafter06"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/gameOver"
         app:layout_constraintStart_toEndOf="@+id/craft_5"
         app:layout_constraintTop_toBottomOf="@+id/craft_4" />
 

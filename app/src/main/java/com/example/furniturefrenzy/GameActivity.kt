@@ -44,7 +44,6 @@ class GameActivity : AppCompatActivity() {
     private lateinit var glassStationButton: Button
     private lateinit var oreStationButton: Button
     private lateinit var plasticStationButton: Button
-    private lateinit var gameOverButton: Button
     private val workerCount = 5 // Set number of worker here
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -124,6 +123,8 @@ class GameActivity : AppCompatActivity() {
             var craftPlasticChairButton = dialogBinding.findViewById<Button>(R.id.plasticChair)
             var craftStoneBenchButton = dialogBinding.findViewById<Button>(R.id.stoneBench)
             var craftStoneTable = dialogBinding.findViewById<Button>(R.id.stoneTable)
+
+            //boolean var
             craftCoffeeTableButton.setOnClickListener {
                 game.craftOrder(1)
                 callback()
@@ -200,9 +201,6 @@ class GameActivity : AppCompatActivity() {
             }
         }
 
-        // Gameover button
-        gameOverButton = findViewById(R.id.gameOver)
-
         // 5x resource sites
         // Wood -> 1; Stone -> 2; Glass -> 3; Ore -> 4; Plastic -> 5
         woodStationButton = findViewById(R.id.forest)
@@ -228,10 +226,6 @@ class GameActivity : AppCompatActivity() {
         plasticStationButton = findViewById(R.id.factory)
         plasticStationButton.setOnClickListener {
             game.extractResource(5)
-        }
-
-        gameOverButton.setOnClickListener {
-            game.showGameOverScreen()
         }
     }
 
