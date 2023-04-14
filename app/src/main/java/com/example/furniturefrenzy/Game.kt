@@ -36,9 +36,7 @@ class Game(
     private val finalResourceList = ArrayList<finalResource>()
     init {
         // Final Resource Info
-        // Index is logs, stone, ore, plasticrods, glass
-
-        // coffee table -> 1; folding chair -> 2; glass table -> 3; park bench -> 4; plastic chair -> 5; stone bench -> 6; stone table -> 7
+        // Index is logs, stone, ore, plastic Rods, glass
         finalResourceList.add(finalResource("CoffeeTable", listOf(6, 0, 0, 0, 4)))
         finalResourceList.add(finalResource("FoldingChair", listOf(0, 0, 5, 0, 0)))
         finalResourceList.add(finalResource("DiningTable", listOf(0, 0, 2, 0, 8)))
@@ -46,12 +44,10 @@ class Game(
         finalResourceList.add(finalResource("PlasticChair", listOf(0, 0, 0, 5, 0)))
         finalResourceList.add(finalResource("StoneBench", listOf(0, 5, 0, 0, 0)))
         finalResourceList.add(finalResource("StoneTable", listOf(0, 10, 0, 0, 0)))
-
-
     }
+
     // Add a ReentrantLock for atomic resource updates
     private val resourceLock = ReentrantLock()
-
     // Orders arrays
     // Instantiate thread pool and semaphore for tracking
     private val executor: ScheduledExecutorService = Executors.newScheduledThreadPool(workerCount)
@@ -59,11 +55,6 @@ class Game(
     private val availableWorkers = Semaphore(workerCount)
     private val requestArrayLock = Semaphore(1)
     private var continueGame = true
-    // TODO: Main game loop
-    // TODO: Run another thread to check if order + grace period have exceeded (showGameOverScreen())
-    // Add to the order arrays, track the orders needs to be fulfilled, handle gameover cirteria
-    // loop...
-    // showGameOverScreen()
 
     fun startGame(){
         gameExecutor.execute{
@@ -73,37 +64,28 @@ class Game(
             val reductionTime = 9000L // y: after 9 seconds, requests will come in faster
             val startTime = System.currentTimeMillis()
             var currentRequestInterval = initialRequestInterval
+
             // At game start
             while (continueGame) {
-                println("main game "+ currentRequestList)
-                println("main game "+ resources)
                 Thread.sleep(currentRequestInterval)
                 // Request Timing
                 val elapsedTime = System.currentTimeMillis() - startTime
+
                 if (elapsedTime > reductionTime) {
                     currentRequestInterval = currentRequestInterval - intervalReduction
-                    println("Reducing request interval")
                     if (currentRequestInterval < intervalFloor) {
                         currentRequestInterval = intervalFloor
                     }
                 }
-
                 // Random Request
                 if(currentRequestList.size < 10){
                     requestArrayLock.acquire()
                     val randomRequest = finalResourceList.random()
                     currentRequestList.add(randomRequest)
-                    println("Added " + randomRequest)
-                    println("Printing currentRequestList in main game loop")
-                    for (value in currentRequestList){
-                        println(value)
-                    }
                     showOrders()
                     requestArrayLock.release()
-
                 }
                 else{
-                    println("GAME OVER")
                     continueGame = false
                     break
                 }
@@ -129,7 +111,6 @@ class Game(
                         3 -> resources["Glass"]?.incrementAndGet()
                         4 -> resources["Ore"]?.incrementAndGet()
                         5 -> resources["PlasticRods"]?.incrementAndGet()
-
                         else -> {
                             println("Error. Only accept 1 -5")
                         }
@@ -147,23 +128,16 @@ class Game(
                         5 -> plasticTextView.text = resources["PlasticRods"]?.get().toString()
                     }
                 }
-
                 // Release worker and update worker avail
                 availableWorkers.release()
                 updateWorkersTextView()
             }, 1, TimeUnit.SECONDS)
         } else {
-            // TODO: Show a message or update the UI to indicate that all workers are busy
         }
     }
 
-
-    // TODO: Get type of job to be done, animate accordingly and assign job accordingly
-    // Index 1 = plastic chair, 2 = folding chair, 3 =stone bench, 4 = stone table, 5 = park bench, 6 = coffee table, 7 = dining table
     //CONSUMER
     fun craftOrder(orderType: Int) {
-        println("craft order " + currentRequestList)
-        println("craft order " + resources)
         if (availableWorkers.tryAcquire()) {
             // Update available workers
             updateWorkersTextView()
@@ -172,14 +146,9 @@ class Game(
             executor.schedule({
                 var craftingSuccessful = false
 
-//                requestArrayLock.acquire()
-//                println("Printing currentRequestList in oncraft")
-//                for (value in currentRequestList){
-//                    println(value)
-//                }
-
                 val request = finalResourceList.getOrNull(orderType - 1)
                 if (request != null) {
+
                     // Check if there are enough resources to craft the product
                     resourceLock.withLock {
                         var canCraft = true
@@ -193,7 +162,6 @@ class Game(
                                 4 -> "Glass"
                                 else -> null
                             }
-
                             if (resourceName != null) {
                                 val resourceAmount = resources[resourceName]?.get() ?: 0
                                 if (resourceAmount < requiredAmount) {
@@ -202,7 +170,6 @@ class Game(
                                 }
                             }
                         }
-
                         if (canCraft) {
                             // Consume the required resources
                             for (index in request.requiredResource.indices) {
@@ -230,13 +197,14 @@ class Game(
                             }
 
                             // Remove the request from the currentRequestList
+                            requestArrayLock.acquire()
                             currentRequestList.remove(request)
                             showOrders()
+                            requestArrayLock.release()
                             craftingSuccessful = true
                         }
                     }
                 }
-//                requestArrayLock.release()
                 if (craftingSuccessful) {
                     // Increment score and update score UI
                     val newScore = score.incrementAndGet()
@@ -244,18 +212,13 @@ class Game(
                         updateScoreTextView(newScore)
                     }
                 }
-
                 // Release worker and update worker availability
                 availableWorkers.release()
                 updateWorkersTextView()
             }, 1, TimeUnit.SECONDS)
         } else {
-            // TODO: Show a message or update the UI to indicate that all workers are busy
         }
     }
-
-
-
 
     private fun updateScoreTextView(newScore: Int) {
         scoreTextView.text = "Fulfilled: $newScore"
