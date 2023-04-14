@@ -39,7 +39,23 @@ class Game(
         resources["PlasticRods"] = AtomicInteger(0)
         resources["Glass"] = AtomicInteger(0)
     }
-    data class finalResource(val name: String, val requiredResource: List<Int>)
+    data class finalResource(val name: String, val requiredResource: List<Int>) {
+        override fun equals(other: Any?): Boolean {
+            if (this === other) return true
+            if (javaClass != other?.javaClass) return false
+
+            other as finalResource
+
+            if (name != other.name) return false
+
+            return true
+        }
+
+        override fun hashCode(): Int {
+            return name.hashCode()
+        }
+    }
+
     private val finalResourceList = ArrayList<finalResource>()
     init {
         // Final Resource Info
@@ -120,6 +136,12 @@ class Game(
 
             // Schedule the task
             executor.schedule({
+
+//                testscore function. Remove ltr
+//                val newScore = score.incrementAndGet()
+//                activity.runOnUiThread {
+//                    updateScoreTextView(newScore)
+//                }
                 // Perform atomic update of the selected resource using ReentrantLock
                 resourceLock.withLock {
                     when (resourceType) {
@@ -150,7 +172,7 @@ class Game(
                 // Release worker and update worker avail
                 availableWorkers.release()
                 updateWorkersTextView()
-            }, 3, TimeUnit.SECONDS)
+            }, 1, TimeUnit.SECONDS)
         } else {
             // TODO: Show a message or update the UI to indicate that all workers are busy
         }
@@ -167,16 +189,26 @@ class Game(
 
             // Schedule the task
             executor.schedule({
-
                 var craftingSuccessful = false
 
                 requestArrayLock.acquire()
                 val request = finalResourceList.getOrNull(orderType - 1)
+                println("Request is ")
+                println(request)
+                println("Entering checking if array")
                 if (request != null && currentRequestList.contains(request)) {
+                    println("Request in array")
+
+                    val newScore = score.incrementAndGet()
+                    activity.runOnUiThread {
+                        updateScoreTextView(newScore)
+                    }
 
                     // Check if there are enough resources to craft the product
                     resourceLock.withLock {
-                        val canCraft = request.requiredResource.withIndex().all { (index, requiredAmount) ->
+                        var canCraft = true
+                        for (index in request.requiredResource.indices) {
+                            val requiredAmount = request.requiredResource[index]
                             val resourceName = when (index) {
                                 0 -> "Logs"
                                 1 -> "Stone"
@@ -185,12 +217,23 @@ class Game(
                                 4 -> "Glass"
                                 else -> null
                             }
-                            resourceName?.let { resources[it]?.get() ?: 0 >= requiredAmount } ?: false
+
+                            if (resourceName != null) {
+                                val resourceAmount = resources[resourceName]?.get() ?: 0
+                                if (resourceAmount < requiredAmount) {
+                                    canCraft = false
+                                    break
+                                }
+                            } else {
+                                canCraft = false
+                                break
+                            }
                         }
 
                         if (canCraft) {
                             // Consume the required resources
-                            request.requiredResource.forEachIndexed { index, requiredAmount ->
+                            for (index in request.requiredResource.indices) {
+                                val requiredAmount = request.requiredResource[index]
                                 val resourceName = when (index) {
                                     0 -> "Logs"
                                     1 -> "Stone"
@@ -199,7 +242,9 @@ class Game(
                                     4 -> "Glass"
                                     else -> null
                                 }
-                                resourceName?.let { resources[it]?.addAndGet(-requiredAmount) }
+                                if (resourceName != null) {
+                                    resources[resourceName]?.addAndGet(-requiredAmount)
+                                }
                             }
 
                             // Update UI with new resource quantities
@@ -231,11 +276,12 @@ class Game(
                 // Release worker and update worker availability
                 availableWorkers.release()
                 updateWorkersTextView()
-            }, 10, TimeUnit.SECONDS)
+            }, 1, TimeUnit.SECONDS)
         } else {
             // TODO: Show a message or update the UI to indicate that all workers are busy
         }
     }
+
 
 
 
