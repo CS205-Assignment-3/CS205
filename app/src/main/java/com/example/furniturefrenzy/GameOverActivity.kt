@@ -31,7 +31,7 @@ class GameOverActivity : AppCompatActivity() {
 
         val timeTaken = intent.getIntExtra("timeTaken", 0)
         val minutes = timeTaken / 60000
-        val seconds = timeTaken % 60000
+        val seconds = (timeTaken % 60000) / 1000
         val timeTakenTextView: TextView = findViewById(R.id.timeTakenTextView)
         timeTakenTextView.text = "Time Taken: $minutes min $seconds sec"
 
