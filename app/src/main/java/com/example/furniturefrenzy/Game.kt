@@ -29,10 +29,10 @@ class Game(
     private val scoreTextView: TextView,
     private val orderArray: Array<ImageView>,
     private val currentRequestList: ArrayList<finalResource>,
-    private val resources: ConcurrentHashMap<String, AtomicInteger>
+    private val resources: ConcurrentHashMap<String, AtomicInteger>,
+    private val score: AtomicInteger
 ) {
     // Game resources
-    private val score = AtomicInteger(0)
     private val finalResourceList = ArrayList<finalResource>()
     init {
         // Final Resource Info

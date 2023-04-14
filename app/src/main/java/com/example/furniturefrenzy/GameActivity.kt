@@ -49,6 +49,8 @@ class GameActivity : AppCompatActivity() {
     private val workerCount = 5 // Set number of worker here
     private lateinit var currentRequestList: ArrayList<finalResource>
     private var resources = ConcurrentHashMap<String, AtomicInteger>()
+    private var score = AtomicInteger()
+
     data class finalResource(val name: String, val requiredResource: List<Int>)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,6 +63,7 @@ class GameActivity : AppCompatActivity() {
         resources["Ore"] = AtomicInteger(0)
         resources["PlasticRods"] = AtomicInteger(0)
         resources["Glass"] = AtomicInteger(0)
+        score = AtomicInteger(0)
         // Create game instance
         scoreTextView = findViewById(R.id.scoreTextView)
         workersTextView = findViewById(R.id.workersTextView)
@@ -80,12 +83,13 @@ class GameActivity : AppCompatActivity() {
         orderImageView8 = findViewById(R.id.order_8)
         orderImageView9 = findViewById(R.id.order_9)
         orderImageView10 = findViewById(R.id.order_10)
+
         val orderArray = arrayOf(orderImageView1,orderImageView2,orderImageView3,orderImageView4,
                                 orderImageView5,orderImageView6,orderImageView7,orderImageView8,
                                 orderImageView9,orderImageView10)
         game = Game(this, this, workerCount, workersTextView, woodTextView,
             stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,
-            orderArray, currentRequestList,resources)
+            orderArray, currentRequestList,resources, score)
         game.startGame()
 
         // Worker GIF display
@@ -263,6 +267,6 @@ class GameActivity : AppCompatActivity() {
                                 orderImageView9,orderImageView10)
         game = Game(this, this, workerCount, workersTextView, woodTextView,
             stoneTextView, glassTextView, oreTextView, plasticTextView, scoreTextView,
-            orderArray, currentRequestList,resources) // Create a new game instance when returning to the activity
+            orderArray, currentRequestList,resources, score) // Create a new game instance when returning to the activity
     }
 }
