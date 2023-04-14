@@ -9,11 +9,16 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 
 class GameOverActivity : AppCompatActivity() {
 
     private lateinit var dbHelper: GameDatabaseHelper
     private lateinit var firestore: FirebaseFirestore
+    private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,7 +38,7 @@ class GameOverActivity : AppCompatActivity() {
         val minutes = timeTaken / 60000
         val seconds = (timeTaken % 60000) / 1000
         val timeTakenTextView: TextView = findViewById(R.id.timeTakenTextView)
-        timeTakenTextView.text = "Time Taken: $minutes min $seconds sec"
+        timeTakenTextView.text = "Time Taken: $minutes min ${seconds.toInt()} sec"
 
         // Save the game record to the database
         val datetime = System.currentTimeMillis()
@@ -85,23 +90,23 @@ class GameOverActivity : AppCompatActivity() {
     }
 
     private fun saveRecordToFirestore(username: String, datetime: Long, timeTaken: Int, score: Int) {
-        val record = hashMapOf(
-            "userName" to username,
-            "dateTime" to datetime,
-            "timeTaken" to timeTaken,
-            "score" to score
-        )
+        coroutineScope.launch {
+            val record = hashMapOf(
+                "userName" to username,
+                "dateTime" to datetime,
+                "timeTaken" to timeTaken,
+                "score" to score
+            )
 
-        firestore.collection("records")
-            .add(record)
-            .addOnSuccessListener { documentReference ->
-                // Successfully added the record
+            try {
+                firestore.collection("records")
+                    .add(record)
+                    .await()
                 Log.i("firestore", "Upload successful")
-            }
-            .addOnFailureListener { e ->
-                // Failed to add the record
+            } catch (e: Exception) {
                 Log.e("firestore", "Upload failed")
             }
+        }
     }
 
     override fun onDestroy() {
