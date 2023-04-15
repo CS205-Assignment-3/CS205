@@ -94,7 +94,7 @@ class Game(
             }
         }
     }
-    // TODO: Same as craft but is producer
+
     fun extractResource(resourceType: Int) {
         if (availableWorkers.tryAcquire()) {
             // Update available workers
@@ -118,7 +118,6 @@ class Game(
 
                 // Update the UI with the new resource quantities
                 activity.runOnUiThread {
-                    // TODO: Update the UI elements to display the new resource quantities
                     when (resourceType) {
                         1 -> woodTextView.text = resources["Logs"]?.get().toString()
                         2 -> stoneTextView.text = resources["Stone"]?.get().toString()
