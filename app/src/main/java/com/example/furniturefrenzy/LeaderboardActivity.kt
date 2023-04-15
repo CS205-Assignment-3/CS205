@@ -17,27 +17,29 @@ import kotlinx.coroutines.tasks.await
 
 class LeaderboardActivity : AppCompatActivity() {
 
+    // Declare Dbhelper and CoroutineScope
     private lateinit var dbHelper: GameDatabaseHelper
     private lateinit var firestore: FirebaseFirestore
     private lateinit var globalRecyclerView: RecyclerView
     private lateinit var localRecyclerView: RecyclerView
-
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_leaderboard)
 
+        // Init helper class
         dbHelper = GameDatabaseHelper(this)
         firestore = FirebaseFirestore.getInstance()
 
-        val records = dbHelper.getAllRecords()
+        // Init recycler view
         localRecyclerView = findViewById(R.id.recyclerView)
         localRecyclerView.layoutManager = LinearLayoutManager(this)
 
         globalRecyclerView = findViewById(R.id.globalRecyclerView)
         globalRecyclerView.layoutManager = LinearLayoutManager(this)
 
+        // Action listeners
         val homeButton = findViewById<Button>(R.id.home)
         homeButton.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
@@ -56,11 +58,13 @@ class LeaderboardActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        // Update the recycler view with the latest record
         loadLocalRecords()
         fetchGlobalRecords()
     }
 
     private fun fetchGlobalRecords() {
+        // Async fetch for the firebase records
         coroutineScope.launch {
             try {
                 val globalRecords = mutableListOf<Record>()

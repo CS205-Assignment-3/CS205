@@ -16,6 +16,7 @@ import kotlinx.coroutines.tasks.await
 
 class GameOverActivity : AppCompatActivity() {
 
+    // Declare dbhelpers and coroutine scope
     private lateinit var dbHelper: GameDatabaseHelper
     private lateinit var firestore: FirebaseFirestore
     private val coroutineScope = CoroutineScope(Dispatchers.Main)
@@ -24,6 +25,7 @@ class GameOverActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_over)
 
+        // Init dbhelpers
         dbHelper = GameDatabaseHelper(this)
         firestore = FirebaseFirestore.getInstance()
 
@@ -33,17 +35,17 @@ class GameOverActivity : AppCompatActivity() {
         scoreTextView.text = "Score: $score pts"
 
         // Get the score extra from the intent
-
         val timeTaken = intent.getIntExtra("timeTaken", 0)
         val minutes = timeTaken / 60000
         val seconds = (timeTaken % 60000) / 1000
         val timeTakenTextView: TextView = findViewById(R.id.timeTakenTextView)
         timeTakenTextView.text = "Time Taken: $minutes min ${seconds.toInt()} sec"
 
-        // Save the game record to the database
+        // Save the game record to the locally on sqlite
         val datetime = System.currentTimeMillis()
         dbHelper.addGameRecord(datetime, timeTaken, score)
 
+        // Action listners
         val homeButton = findViewById<Button>(R.id.home)
         homeButton.setOnClickListener{
             val intent = Intent(this, MainActivity::class.java)
@@ -62,6 +64,7 @@ class GameOverActivity : AppCompatActivity() {
         saveRecordButton.setOnClickListener{
             // Show a dialog to ask for the user's name
             showUsernameDialog { username ->
+                // Save record to firestore
                 saveRecordToFirestore(username, datetime, timeTaken, score)
             }
         }
@@ -90,6 +93,7 @@ class GameOverActivity : AppCompatActivity() {
     }
 
     private fun saveRecordToFirestore(username: String, datetime: Long, timeTaken: Int, score: Int) {
+        // Async upload to firebase firestore
         coroutineScope.launch {
             val record = hashMapOf(
                 "userName" to username,
