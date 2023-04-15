@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialogbox">
+
+    <Button
+        android:id="@+id/coffeeTable"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="207dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="coffee_table"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/glassTable"
+        app:layout_constraintStart_toEndOf="@+id/parkBench"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/foldingChair"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="207dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="folding_chair"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/stoneBench"
+        app:layout_constraintStart_toEndOf="@+id/plasticChair"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/glassTable"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="190dp"
+        android:layout_marginBottom="207dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="glass_table"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/coffeeTable"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/parkBench"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="207dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="park_bench"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/coffeeTable"
+        app:layout_constraintStart_toEndOf="@+id/stoneTable"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/plasticChair"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="207dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="plastic_chair"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/foldingChair"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/stoneBench"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="207dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="stone_bench"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/stoneTable"
+        app:layout_constraintStart_toEndOf="@+id/foldingChair"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/stoneTable"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="134dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="207dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="stone_table"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/parkBench"
+        app:layout_constraintStart_toEndOf="@+id/stoneBench"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/closeDialogbox"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="116dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="X"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/main_game"
+    tools:context=".GameActivity">
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_1"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_2"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.238"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.368" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_3"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.671" />
+
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_4"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.262"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.671" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_5"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_6"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.956" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_8"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.913" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_9"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.793"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.374" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_10"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.811"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.688" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_11"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.773"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/worker_7"
+        android:layout_width="63dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/worker"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.515" />
+
+    <TextView
+        android:id="@+id/plasticTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginBottom="27dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/workersTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/digsite"
+        app:layout_constraintTop_toBottomOf="@+id/oreTextView" />
+
+    <TextView
+        android:id="@+id/glassTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="24dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/oreTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mine"
+        app:layout_constraintTop_toBottomOf="@+id/stoneTextView" />
+
+    <Button
+        android:id="@+id/smelters"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="130dp"
+        android:layout_marginEnd="130dp"
+        android:layout_marginBottom="190dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Smelters"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/mine"
+        app:layout_constraintStart_toEndOf="@+id/craft_2"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/factory"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="115dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="45dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Factory"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/digsite"
+        app:layout_constraintStart_toEndOf="@+id/craft_2"
+        app:layout_constraintTop_toBottomOf="@+id/smelters" />
+
+    <Button
+        android:id="@+id/mine"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="90dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="15dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Mine"
+        app:layout_constraintBottom_toTopOf="@+id/forest"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/smelters"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/forest"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="9dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Forest"
+        app:layout_constraintBottom_toTopOf="@+id/digsite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/smelters"
+        app:layout_constraintTop_toBottomOf="@+id/mine" />
+
+    <Button
+        android:id="@+id/digsite"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="16dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Digsite"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/smelters"
+        app:layout_constraintTop_toBottomOf="@+id/forest" />
+
+    <TextView
+        android:id="@+id/scoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="68dp"
+        android:text="Fulfilled: 0"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/workersTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="380dp"
+        android:text="0/5"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/woodTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="53dp"
+        android:layout_marginBottom="19dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textColor="#454545"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/stoneTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mine"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/oreTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="27dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/plasticTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/forest"
+        app:layout_constraintTop_toBottomOf="@+id/glassTextView" />
+
+    <TextView
+        android:id="@+id/stoneTextView"
+        android:layout_width="38dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginBottom="24dp"
+        android:text="0"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/glassTextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/mine"
+        app:layout_constraintTop_toBottomOf="@+id/woodTextView" />
+
+    <Button
+        android:id="@+id/craft_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="55dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter01"
+        app:layout_constraintBottom_toTopOf="@+id/craft_3"
+        app:layout_constraintEnd_toStartOf="@+id/craft_2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/craft_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="51dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter03"
+        app:layout_constraintBottom_toTopOf="@+id/craft_5"
+        app:layout_constraintEnd_toStartOf="@+id/craft_4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/craft_1" />
+
+    <Button
+        android:id="@+id/craft_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="47dp"
+        android:layout_marginEnd="47dp"
+        android:layout_marginBottom="44dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter05"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/craft_6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/craft_3" />
+
+    <Button
+        android:id="@+id/craft_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="111dp"
+        android:layout_marginEnd="110dp"
+        android:layout_marginBottom="55dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter02"
+        app:layout_constraintBottom_toTopOf="@+id/craft_4"
+        app:layout_constraintEnd_toStartOf="@+id/smelters"
+        app:layout_constraintStart_toEndOf="@+id/craft_1"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/craft_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="51dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter04"
+        app:layout_constraintBottom_toTopOf="@+id/craft_6"
+        app:layout_constraintEnd_toStartOf="@+id/smelters"
+        app:layout_constraintStart_toEndOf="@+id/craft_3"
+        app:layout_constraintTop_toBottomOf="@+id/craft_2" />
+
+    <Button
+        android:id="@+id/craft_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="120dp"
+        android:layout_marginBottom="44dp"
+        android:alpha="0.01"
+        android:color="#66FF0000"
+        android:text="Crafter06"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/smelters"
+        app:layout_constraintStart_toEndOf="@+id/craft_5"
+        app:layout_constraintTop_toBottomOf="@+id/craft_4" />
+
+    <ImageView
+        android:id="@+id/order_1"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/order_2"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.03"
+        app:layout_constraintStart_toStartOf="@+id/order_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/order_3"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="13dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.178"
+        app:layout_constraintStart_toStartOf="@+id/order_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/order_4"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="17dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintStart_toStartOf="@+id/order_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/order_5"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintStart_toStartOf="@+id/order_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/order_6"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="27dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.464"
+        app:layout_constraintStart_toStartOf="@+id/order_1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/order_7"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.588"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/order_8"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toStartOf="@+id/order_7"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/order_9"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="@+id/order_8"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/order_10"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.876"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <ImageView
+        android:id="@+id/small_wood"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/mine"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/smelters"
+        app:layout_constraintTop_toBottomOf="@+id/mine"
+        app:layout_constraintVertical_bias="0.372"
+        app:srcCompat="@drawable/wood" />
+
+    <ImageView
+        android:id="@+id/small_glass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/small_plastic"
+        app:layout_constraintEnd_toEndOf="@+id/smelters"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/craft_2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.667"
+        app:srcCompat="@drawable/glass" />
+
+    <ImageView
+        android:id="@+id/small_ore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/mine"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/smelters"
+        app:layout_constraintTop_toBottomOf="@+id/order_9"
+        app:layout_constraintVertical_bias="0.29"
+        app:srcCompat="@drawable/ore" />
+
+    <ImageView
+        android:id="@+id/small_stone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/digsite"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/smelters"
+        app:layout_constraintTop_toBottomOf="@+id/forest"
+        app:layout_constraintVertical_bias="0.797"
+        app:srcCompat="@drawable/stone" />
+
+    <ImageView
+        android:id="@+id/small_plastic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="41dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/factory"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/craft_2"
+        app:layout_constraintTop_toBottomOf="@+id/smelters"
+        app:layout_constraintVertical_bias="0.649"
+        app:srcCompat="@drawable/plastic" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
